@@ -163,3 +163,5 @@ void Player::setPlayerScore(int newScore) {
 void Player::setPieceColor(pieceColors newPieceColor){
     pieceColor=newPieceColor;
 }
+
+

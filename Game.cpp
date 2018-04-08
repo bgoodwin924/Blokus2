@@ -1,0 +1,57 @@
+//
+// Created by Alexandre Verville on 4/7/18.
+//
+#include "Game.h"
+using namespace std;
+
+/////////////////////////Player CLASS/////////////////////////
+//Constructors
+Player::Player() {
+
+}
+//Getters
+//Setters
+
+/////////////////////////Square CLASS/////////////////////////
+//Constructors
+Square::Square() {
+
+
+}
+//Getters
+//Setters
+
+/////////////////////////Piece CLASS/////////////////////////
+//Constructors
+Piece::Piece() {
+
+
+
+}
+//Getters
+//Setters
+
+/////////////////////////Board CLASS/////////////////////////
+//Constructors
+Board::Board() {
+
+
+}
+//Getters
+//Setters
+
+/////////////////////////Blokus CLASS/////////////////////////
+//Constructors
+Blokus::Blokus() {
+
+
+}
+//Getters
+//Setters
+
+/////////////////////////Computer CLASS/////////////////////////
+//Constructors
+Computer::Computer() {
+
+
+}

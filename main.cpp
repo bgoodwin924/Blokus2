@@ -3,8 +3,8 @@
 #include <math.h>
 #include <string>
 using namespace std;
-enum mode {menu,game,unknown};
-mode m =menu;
+enum mode {menu,game,gameOver,unknown};
+mode m;
 
 GLdouble width, height;
 int wd;
@@ -20,9 +20,25 @@ void initGL() {
     glClearColor(0.961f, 0.961f, 0.961f, 1.0f); // Black and opaque
 }
 
-void drawSquare()
+void displayMenu(){
+    // draw words
+
+
+    string message = "Blokus!";
+    glColor3f(1.0, 0.0, 0.0);
+    glRasterPos2i(400, 500);
+    for (char c : message) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+    }
+    string message2 = "by: The Blok-Boys";
+    glColor3f(1.0, 0.0, 0.0);
+    glRasterPos2i(400, 550);
+    for (char c : message2) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+    }
+}
+void displayGame()
 {
-    if(m==game) {
         // tell OpenGL to use the whole window for drawing
         glViewport(0, 0, width, height);
 
@@ -46,12 +62,15 @@ void drawSquare()
         }
         glEnd();
         glFlush();
-    }
+}
+
+void displayEnd(){
+
 }
 /* Handler for window-repaint event. Call back when the window first appears and
  whenever the window needs to be re-painted. */
 void display() {
-    if(m==menu) {
+
         // tell OpenGL to use the whole window for drawing
         glViewport(0, 0, width, height);
 
@@ -68,34 +87,18 @@ void display() {
         /*
          * Draw here
          */
-        double PI = 3.14;
-        glBegin(GL_TRIANGLE_FAN);
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex2i(500, 200);
-        glColor3f(1.0f, 0.0f, 0.0f);
-        for (double i = 0; i < 2.0 * PI + 0.05; i += 2.0 * PI / 360.0) {
-            glVertex2i(500 + 35 * cos(i),
-                       200 + 35 * sin(i));
-        }
-        glEnd();
-
-        // draw words
-        string message = "Press Space to change color to blue";
-        glColor3f(0.0, 1.0, 0.1);
-        glRasterPos2i(250, 150);
-        for (char c : message) {
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
-        }
-        string message2 = "left mouse click to change color back!";
-        glColor3f(0.0, 1.0, 0.1);
-        glRasterPos2i(250, 550);
-        for (char c : message2) {
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
-        }
-
-        glFlush();  // Render now
+        switch(m) {
+            case menu: displayMenu();
+                break;
+            case game: displayGame();
+                break;
+            case gameOver: displayEnd();
+                break;
     }
-    drawSquare();
+
+
+    glFlush();  // Render now
+
 }
 
 // http://www.theasciicode.com.ar/ascii-control-characters/escape-ascii-code-27.html

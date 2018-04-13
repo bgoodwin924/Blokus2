@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string>
+#include <sstream>
 //using namespace std;
 enum mode {menu,game,gameOver,unknown};
 mode m;
@@ -48,10 +49,10 @@ const int tetrominos[7][4][4] = {
                 {0, 1, 1, 1},
                 {0, 0, 0, 0}},
 
-        {       {0, 0, 0, 0},
-                {1, 1, 1, 1},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0}},
+        {       {0, 1, 0, 0},
+                {0, 1, 0, 0},
+                {0, 1, 0, 0},
+                {0, 1, 0, 0}},
 };
 
 int points = 0;
@@ -87,10 +88,9 @@ void init_curr_block() {
 }
 
 void init() {
-    // Set "clearing" or background color
-    glClearColor(0.961f, 0.961f, 0.961f, 1.0f); // Black and opaque
-    width = 1000;
-    height = 1000;
+    glClearColor(1, 1, 1, 0);
+    glColor3f(0, 0, 0);
+    //srand(time(NULL));
     init_curr_block();
 }
 
@@ -102,7 +102,7 @@ void displayMenu(){
 
      std::string message = "Blokus!";
     glColor3f(1.0, 0.0, 0.0);
-    glRasterPos2i(400, 500);
+    glRasterPos2i(0, 0);
     for (char c : message) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
     }
@@ -116,15 +116,15 @@ void displayMenu(){
 void displayGame()
 {
         // tell OpenGL to use the whole window for drawing
-        glViewport(0, 0, width, height);
+        //glViewport(0, 0, width, height);
 
         // do an orthographic parallel projection with the coordinate
         // system set to first quadrant, limited by screen/window size
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
+        //glMatrixMode(GL_PROJECTION);
+        //glLoadIdentity();
+        //glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
 
-        glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
+        //glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
     
         /*glBegin(GL_LINES);
         glColor3f(1.0f, 0.0f, 0.0f); // Red (RGB)
@@ -138,11 +138,22 @@ void displayGame()
         }
         glEnd();*/
 
+    glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_QUADS);
+    for (int i = 0; i < column_count; i++) {
+        for (int j = 0; j < row_count; j++) {
+            if (blocks[i][j]) {
+                glVertex2f(j, column_count - i);
+                glVertex2f(j, column_count - i - 1);
+                glVertex2f(j + 1, column_count - i - 1);
+                glVertex2f(j + 1, column_count - i);
+            }
+        }
+    }
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
             if (curr_block[i][j]) {
-                glColor3f(0,1,0);
+                //glColor3f(0,1,0);
                 glVertex2f(curr_pos[0] + j, column_count - (curr_pos[1] + i));
                 glVertex2f(curr_pos[0] + j, column_count - (curr_pos[1] + i + 1));
                 glVertex2f(curr_pos[0] + j + 1, column_count - (curr_pos[1] + i + 1));
@@ -163,17 +174,17 @@ void displayEnd(){
 void display() {
 
         // tell OpenGL to use the whole window for drawing
-        glViewport(0, 0, width, height);
+        //glViewport(0, 0, width, height);
 
         // do an orthographic parallel projection with the coordinate
         // system set to first quadrant, limited by screen/window size
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
+        //glMatrixMode(GL_PROJECTION);
+        //glLoadIdentity();
+        //glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
 
-        glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
+        //glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
 
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
         /*
          * Draw here
@@ -195,7 +206,7 @@ void display() {
 void reshape(int width, int height) {
     glViewport(0, 0, width, height);
     glLoadIdentity();
-    gluOrtho2D(0, width, 0, height);
+    gluOrtho2D(0, width / block_size, 0, height / block_size);
 }
 
 bool is_empty(int next_x, int next_y) {
@@ -247,6 +258,11 @@ void rotate() {
     glutPostRedisplay();
 }
 
+void timer(int value);
+
+void flush(int value);
+
+void shift(int value);
 
 // http://www.theasciicode.com.ar/ascii-control-characters/escape-ascii-code-27.html
 void kbd(unsigned char key, int x, int y)
@@ -275,10 +291,10 @@ void kbdS(int key, int x, int y) {
             move(1, 0);
             break;
         case GLUT_KEY_UP:
-            move(0,1);
+            move(0,-1);
             break;
         case GLUT_KEY_DOWN:
-            move(0, -1);
+            move(0, 1);
             break;
     }
 }
@@ -301,30 +317,86 @@ void mouse(int button, int state, int x, int y) {
     glutPostRedisplay();
 }
 
-void timer(int extra) {
-
-    glutPostRedisplay();
-    glutTimerFunc(30, timer, 0);
+void timer(int value) {
+   /* if (!move(0, 1)) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (curr_block[i][j]) {
+                    blocks[curr_pos[1] + i][curr_pos[0] + j] = 1;
+                }
+            }
+        }
+        memset(curr_block, 0, 4 * 4 * sizeof(int));
+        curr_pos[0] = 0;
+        curr_pos[1] = 0;
+        flush(0);
+        return;
+    }*/
+    glutTimerFunc(interval, timer, 0);
 }
 
+void throw_new_block() {
+    init_curr_block();
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (curr_block[i][j] && blocks[curr_pos[1] + i][curr_pos[0] + j]) {
+                //game_over();
+                return;
+            }
+        }
+    }
+    glutPostRedisplay();
+    glutTimerFunc(interval, timer, 0);
+}
+
+void flush(int value) {
+    for (int i = column_count - 1; i >= 0; i--) {
+        int j;
+        for (j = 0; j < row_count; j++) {
+            if (!blocks[i][j]) {
+                break;
+            }
+        }
+        if (j == row_count) {
+            std::ostringstream os;
+            os << "tris: " << ++points * 10 << " points";
+            glutSetWindowTitle(os.str().c_str());
+            memset(blocks[i], 0, row_count * sizeof(int));
+            glutPostRedisplay();
+            glutTimerFunc(interval, shift, i);
+            return;
+        }
+    }
+    throw_new_block();
+}
+
+void shift(int y) {
+    for (int i = y; i >= 1; i--) {
+        for (int j = 0; j < row_count; j++) {
+            blocks[i][j] = blocks[i - 1][j];
+        }
+    }
+    glutPostRedisplay();
+    glutTimerFunc(interval, flush, 0);
+}
 /* Main function: GLUT runs as a console application starting at main()  */
 int main(int argc, char** argv) {
 
-    init();
+
 
     glutInit(&argc, argv);          // Initialize GLUT
 
     glutInitDisplayMode(GLUT_RGBA);
 
-    glutInitWindowSize((int)width, (int)height);
-    //glutInitWindowSize(block_size * row_count, block_size * column_count);
+    //glutInitWindowSize((int)width, (int)height);
+    glutInitWindowSize((block_size * row_count)+500, (block_size * column_count)+500);
     glutInitWindowPosition(0, 0); // Position the window's initial top-left corner
     /* create the window and store the handle to it */
     wd = glutCreateWindow("Blokus!!!" /* title */ );
-    init();
+
     // Register callback handler for window re-paint event
     glutDisplayFunc(display);
-   // glutReshapeFunc(reshape);
+    glutReshapeFunc(reshape);
     // Our own OpenGL initialization
 
 
@@ -342,9 +414,10 @@ int main(int argc, char** argv) {
     glutMouseFunc(mouse);
 
     // handles timer
-    glutTimerFunc(0, timer, 0);
+    glutTimerFunc(interval, timer, 0);
 
     // Enter the event-processing loop
+    init();
     glutMainLoop();
     return 0;
 }

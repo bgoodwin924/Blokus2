@@ -359,7 +359,7 @@ void flush(int value) {
         }
         if (j == row_count) {
             std::ostringstream os;
-            os << "tris: " << ++points * 10 << " points";
+            os << "Score: " << ++points * 10 << " points";
             glutSetWindowTitle(os.str().c_str());
             memset(blocks[i], 0, row_count * sizeof(int));
             glutPostRedisplay();

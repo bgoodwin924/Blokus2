@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.7)
-project(Blok-Boys)
+project(The-Blok-Boys)
 
 set(FREEGLUT_INCLUDE_DIRS "C:/Program\ Files/Common\ Files/freeglut/include")
 set(FREEGLUT_LIBRARY_DIRS "C:/Program\ Files/Common\ Files/freeglut/lib")

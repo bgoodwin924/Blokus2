@@ -1,5 +1,5 @@
 #include <iostream>
-#include "game.h"
+#include "Blokus.h"
 #include <stdlib.h>
 #include <math.h>
 #include <string>
@@ -18,43 +18,135 @@ const int column_count = 20;
 const int row_count = 20;
 const int init_pos[2] = {3, 0};
 
-const int tetrominos[7][4][4] = {
-        {       {0, 0, 0, 0},
-                {0, 1, 0, 0},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0}},
+const int tetrominos[21][5][5] = {
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
 
-        {       {0, 0, 0, 0},
-                {0, 1, 1, 0},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0}},
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 1, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
 
-        {       {0, 0, 0, 0},
-                {0, 1, 1, 0},
-                {0, 0, 1, 0},
-                {0, 0, 0, 0}},
 
-        {       {0, 0, 0, 0},
-                {0, 1, 1, 1},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0}},
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
 
-        {       {0, 0, 0, 0},
-                {0, 1, 1, 0},
-                {0, 1, 1, 0},
-                {0, 0, 0, 0}},
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
 
-        {       {0, 0, 0, 0},
-                {0, 0, 1, 0},
-                {0, 1, 1, 1},
-                {0, 0, 0, 0}},
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
 
-        {       {0, 1, 0, 0},
-                {0, 1, 0, 0},
-                {0, 1, 0, 0},
-                {0, 1, 0, 0}},
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
+        {       {0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}},
+
 };
-
 int points = 0;
 int curr_block[4][4] = {};
 int curr_pos[2] = {};
@@ -100,7 +192,7 @@ void displayMenu(){
     // draw words
 
 
-     std::string message = "Blokus!";
+    std::string message = "Blokus!";
     glColor3f(1.0, 0.0, 0.0);
     glRasterPos2i(0, 0);
     for (char c : message) {
@@ -115,28 +207,28 @@ void displayMenu(){
 }
 void displayGame()
 {
-        // tell OpenGL to use the whole window for drawing
-        //glViewport(0, 0, width, height);
+    // tell OpenGL to use the whole window for drawing
+    //glViewport(0, 0, width, height);
 
-        // do an orthographic parallel projection with the coordinate
-        // system set to first quadrant, limited by screen/window size
-        //glMatrixMode(GL_PROJECTION);
-        //glLoadIdentity();
-        //glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
+    // do an orthographic parallel projection with the coordinate
+    // system set to first quadrant, limited by screen/window size
+    //glMatrixMode(GL_PROJECTION);
+    //glLoadIdentity();
+    //glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
 
-        //glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
-    
-        /*glBegin(GL_LINES);
-        glColor3f(1.0f, 0.0f, 0.0f); // Red (RGB)
-        for (float x = 0; x < 600; x += 30) {
-            glVertex3f(x, 0.0f, 0.0f);
-            glVertex3f(x, float(600), 0.0f);
-        }
-        for (float y = 0; y < 600; y += 30) {
-            glVertex3f(0.0f, y, 0.0f);
-            glVertex3f(float(600), y, 0.0f);
-        }
-        glEnd();*/
+    //glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
+
+    /*glBegin(GL_LINES);
+    glColor3f(1.0f, 0.0f, 0.0f); // Red (RGB)
+    for (float x = 0; x < 600; x += 30) {
+        glVertex3f(x, 0.0f, 0.0f);
+        glVertex3f(x, float(600), 0.0f);
+    }
+    for (float y = 0; y < 600; y += 30) {
+        glVertex3f(0.0f, y, 0.0f);
+        glVertex3f(float(600), y, 0.0f);
+    }
+    glEnd();*/
 
     glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_QUADS);
@@ -163,7 +255,7 @@ void displayGame()
         }
     }
     glEnd();
-        glFlush();
+    glFlush();
 }
 
 void displayEnd(){
@@ -173,29 +265,29 @@ void displayEnd(){
  whenever the window needs to be re-painted. */
 void display() {
 
-        // tell OpenGL to use the whole window for drawing
-        //glViewport(0, 0, width, height);
+    // tell OpenGL to use the whole window for drawing
+    //glViewport(0, 0, width, height);
 
-        // do an orthographic parallel projection with the coordinate
-        // system set to first quadrant, limited by screen/window size
-        //glMatrixMode(GL_PROJECTION);
-        //glLoadIdentity();
-        //glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
+    // do an orthographic parallel projection with the coordinate
+    // system set to first quadrant, limited by screen/window size
+    //glMatrixMode(GL_PROJECTION);
+    //glLoadIdentity();
+    //glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
 
-        //glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
+    //glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
 
-        //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-        /*
-         * Draw here
-         */
-        switch(m) {
-            case menu: displayMenu();
-                break;
-            case game: displayGame();
-                break;
-            case gameOver: displayEnd();
-                break;
+    /*
+     * Draw here
+     */
+    switch(m) {
+        case menu: displayMenu();
+            break;
+        case game: displayGame();
+            break;
+        case gameOver: displayEnd();
+            break;
     }
 
 
@@ -209,7 +301,7 @@ void reshape(int width, int height) {
     gluOrtho2D(0, width / block_size, 0, height / block_size);
 }
 
-bool is_empty(int next_x, int next_y) {
+bool isempty(int next_x, int next_y) {
     if (next_x < 0 || row_count <= next_x) {
         return false;
     }
@@ -228,7 +320,7 @@ bool move(int x, int y) {
             if (curr_block[i][j]) {
                 int next_x = curr_pos[0] + j + x;
                 int next_y = curr_pos[1] + i + y;
-                if (!is_empty(next_x, next_y)) {
+                if (!isempty(next_x, next_y)) {
                     return false;
                 }
             }
@@ -247,7 +339,7 @@ void rotate() {
             if (curr_block[i][j]) {
                 int next_x = curr_pos[0] + i;
                 int next_y = curr_pos[1] + 4 - j;
-                if (!is_empty(next_x, next_y)) {
+                if (!isempty(next_x, next_y)) {
                     return;
                 }
                 tmp[4 - j][i] = 1;
@@ -318,20 +410,20 @@ void mouse(int button, int state, int x, int y) {
 }
 
 void timer(int value) {
-   /* if (!move(0, 1)) {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                if (curr_block[i][j]) {
-                    blocks[curr_pos[1] + i][curr_pos[0] + j] = 1;
-                }
-            }
-        }
-        memset(curr_block, 0, 4 * 4 * sizeof(int));
-        curr_pos[0] = 0;
-        curr_pos[1] = 0;
-        flush(0);
-        return;
-    }*/
+    /* if (!move(0, 1)) {
+         for (int i = 0; i < 4; i++) {
+             for (int j = 0; j < 4; j++) {
+                 if (curr_block[i][j]) {
+                     blocks[curr_pos[1] + i][curr_pos[0] + j] = 1;
+                 }
+             }
+         }
+         memset(curr_block, 0, 4 * 4 * sizeof(int));
+         curr_pos[0] = 0;
+         curr_pos[1] = 0;
+         flush(0);
+         return;
+     }*/
     glutTimerFunc(interval, timer, 0);
 }
 
@@ -359,7 +451,7 @@ void flush(int value) {
         }
         if (j == row_count) {
             std::ostringstream os;
-            os << "tris: " << ++points * 10 << " points";
+            os << "Score: " << ++points * 10 << " points";
             glutSetWindowTitle(os.str().c_str());
             memset(blocks[i], 0, row_count * sizeof(int));
             glutPostRedisplay();

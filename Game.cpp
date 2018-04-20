@@ -1,8 +1,11 @@
 //
 // Created by Alexandre Verville on 4/7/18.
 //
+#include <iostream>
+#include <fstream>
 #include "Game.h"
 using namespace std;
+
 
 
 //
@@ -15,13 +18,18 @@ Square::Square() {
     rotationOfSquare=rotate0;
 
 }
+Square::Square(squareRotate newRotation){
+    posX = 0;
+    posY = 0;
+    rotationOfSquare=newRotation;
+}
 Square::Square(int newPosX, int newPosY) {
     posX = newPosX;
     posY = newPosY;
     rotationOfSquare=rotate0;
 
 }
-Square::Square(int newPosX, int newPosY, squareRotate newRotation) {
+Square::Square(int newPosX, int newPosY, squareRotate newRotation):Square( newRotation) {
     posX = newPosX;
     posY = newPosY;
     rotationOfSquare=newRotation;
@@ -35,8 +43,8 @@ int     Square::getPosX() const {
 int     Square::getPosY()  const {
     return posY;
 }
-squareRotate getRotationOfSquare() {
-    return rotate0;
+squareRotate Square::getRotationOfSquare() const{
+    return rotationOfSquare;
 }
 //Setters
 void Square::setPosX(int newPosX){
@@ -45,25 +53,30 @@ void Square::setPosX(int newPosX){
 void Square::setPosY(int newPosY){
     posX=newPosY;
 }
-squareRotate setRotationOfSquare(squareRotate newRotation) {
-    return newRotation;
+void Square::setRotationOfSquare(squareRotate newRotation) {
+    rotationOfSquare = newRotation;
 }
 /////////////////////////Piece CLASS/////////////////////////
 //Constructors
-Piece::Piece() {
+Piece::Piece() : Square() {
     colorOfPiece = unknownColor;
     length = 0.0;
     height = 0.0;
 }
-Piece::Piece(pieceColors colorOfPiece) {
-    colorOfPiece = colorOfPiece;
+Piece::Piece(pieceColors colorOfPiece) : Square(){
+    this->colorOfPiece = colorOfPiece;
     length = 0.0;
     height = 0.0;
 }
-Piece::Piece(double newLength, double newHeight) {
+Piece::Piece(double newLength, double newHeight) : Square(){
     colorOfPiece = unknownColor;
     length = newLength;
     height = newHeight;
+}
+Piece::Piece(pieceColors newPieceColor, squareRotate newRotation): Square(newRotation){
+    colorOfPiece = newPieceColor;
+    length = 0.0;
+    height = 0.0;
 }
 //Getters
 pieceColors     Piece::getPieceColor() const{
@@ -162,6 +175,13 @@ void Player::setPlayerScore(int newScore) {
 }
 void Player::setPieceColor(pieceColors newPieceColor){
     pieceColor=newPieceColor;
+}
+void Player::saveScore(){
+    fstream fOut;
+    fOut.open("Score.txt");
+    fOut << "Player Score: " << playerScore << endl;
+    fOut.close();
+
 }
 
 

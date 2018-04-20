@@ -23,6 +23,7 @@
 enum pieceColors {red, blue, yellow, green, unknownColor};
 enum squareRotate {rotate0, rotate90, rotate180, rotate270};
 
+
 //abstract class
 class Square {
 private:
@@ -33,6 +34,7 @@ squareRotate rotationOfSquare=rotate0;
 public:
 //Constructors
 Square();
+Square(squareRotate newRotation);
 Square(int newPosX, int newPosY);
 Square(int newPosX, int newPosY, squareRotate newRotation);
 
@@ -51,15 +53,15 @@ void setRotationOfSquare(squareRotate newRotation);
 
 class Piece: public Square{   //pieces are made of squares so, it will inherent from square
 private:
-    pieceColors colorOfPiece = unknownColor;
+    pieceColors colorOfPiece;
     double length = 0.0;
     double height = 0.0;
-
 
 public:
 //Constructors
 Piece();
 Piece(pieceColors newPieceColor);
+Piece(pieceColors newPieceColor, squareRotate newRotation);
 Piece(double newLength, double newHeight);
 
 
@@ -135,7 +137,7 @@ public:
     Player();
     Player(pieceColors newPieceColor);
     Player(pieceColors newPieceColor, int newPlayerScore);
-
+    void saveScore();
 
 //Getters
     int getPlayerScore() const;
@@ -146,6 +148,8 @@ public:
     void setPlayerScore(int newScore);
     void setPieceColor(pieceColors newPieceColor);
 };
+
+
 
 // Program initialization NOT OpenGL/GLUT dependent,
 // as we haven't created a GLUT window yet

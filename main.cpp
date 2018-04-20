@@ -1,5 +1,5 @@
 #include <iostream>
-#include "game.h"
+#include "Game.h"
 #include <stdlib.h>
 #include <math.h>
 #include <string>
@@ -18,41 +18,136 @@ const int column_count = 20;
 const int row_count = 20;
 const int init_pos[2] = {3, 0};
 
-const int tetrominos[7][4][4] = {
+const int tetrominos[21][5][4] = {
         {       {0, 0, 0, 0},
-                {0, 1, 0, 0},          //Single Square
+                {0, 1, 0, 0},
                 {0, 0, 0, 0},
                 {0, 0, 0, 0}},
 
         {       {0, 0, 0, 0},
-                {0, 1, 1, 0},           //Two Squares: Line
+                {0, 1, 1, 0},
                 {0, 0, 0, 0},
                 {0, 0, 0, 0}},
 
         {       {0, 0, 0, 0},
-                {0, 1, 1, 0},           //Three Squares: L shape
+                {0, 1, 1, 0},
                 {0, 0, 1, 0},
                 {0, 0, 0, 0}},
 
         {       {0, 0, 0, 0},
-                {0, 1, 1, 1},           //Three Squares: Line
+                {0, 1, 1, 1},
                 {0, 0, 0, 0},
                 {0, 0, 0, 0}},
 
-        {       {0, 0, 0, 0},           //Four Squares: Square
+        {       {0, 0, 0, 0},
                 {0, 1, 1, 0},
                 {0, 1, 1, 0},
                 {0, 0, 0, 0}},
 
         {       {0, 0, 0, 0},
-                {0, 0, 1, 0},           //Four Squares: T-Shape
+                {0, 0, 1, 0},
                 {0, 1, 1, 1},
                 {0, 0, 0, 0}},
 
         {       {0, 1, 0, 0},
-                {0, 1, 0, 0},           //Four Squares: Line
+                {0, 1, 0, 0},
                 {0, 1, 0, 0},
                 {0, 1, 0, 0}},
+
+                //Andrew's shapes
+        {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 1},
+                {0, 1, 1, 1}},
+
+        {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 1, 1},
+                {0, 1, 1, 0}},
+
+        {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {1, 0, 0, 0},
+                {1, 1, 1, 1}},
+        {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 1, 0, 0},
+                {0, 1, 0, 0},
+                {1, 1, 1, 0}},
+        {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {1, 0, 0, 0},
+                {1, 0, 0, 0},
+                {1, 1, 1, 0}},
+        {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 1, 1, 1},
+                {1, 1, 0, 0}},
+        {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 1, 0},
+                {1, 1, 1, 0},
+                {1, 0, 0, 0}},
+
+               //Alexandre's shapes
+        {       {0, 0, 0, 1},//15
+                {0, 0, 0, 1},
+                {0, 0, 0, 1},
+                {0, 0, 0, 1},
+                {0, 0, 0, 1}},
+
+        {       {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {1, 0, 0, 0},//16
+                {1, 1, 0, 0},
+                {1, 1, 0, 0}},
+
+        {       {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 1, 1, 0},//17
+                {1, 1, 0, 0},
+                {1, 0, 0, 0}},
+
+        {       {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {1, 1, 0, 0},//18
+                {1, 0, 0, 0},
+                {1, 1, 0, 0}},
+
+        {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 1, 1, 0},//19
+                {1, 1, 0, 0},
+                {0, 1, 0, 0}},
+
+        {       {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 1, 0, 0},//20
+                {1, 1, 1, 0},
+                {0, 1, 0, 0}},
+
+        {       {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},//21
+                {0, 1, 0, 0},
+                {1, 1, 1, 1}},
+
+
+
+
+
 };
 
 int points = 0;
@@ -81,6 +176,7 @@ int blocks[column_count][row_count] = {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 };
 
+
 void init_curr_block() {
     memcpy(curr_block, tetrominos[rand() % 7], 4 * 4 * sizeof(int));
     curr_pos[0] = init_pos[0];
@@ -92,6 +188,8 @@ void init() {
     glColor3f(0, 0, 0);
     //srand(time(NULL));
     init_curr_block();
+
+
 }
 
 
@@ -125,13 +223,13 @@ void displayGame()
         //glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
 
         //glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
-    
+
         /*glBegin(GL_LINES);
         glColor3f(1.0f, 0.0f, 0.0f); // Red (RGB)
         for (float x = 0; x < 600; x += 30) {
             glVertex3f(x, 0.0f, 0.0f);
             glVertex3f(x, float(600), 0.0f);
-        }
+}
         for (float y = 0; y < 600; y += 30) {
             glVertex3f(0.0f, y, 0.0f);
             glVertex3f(float(600), y, 0.0f);
@@ -172,12 +270,11 @@ void displayEnd(){
 /* Handler for window-repaint event. Call back when the window first appears and
  whenever the window needs to be re-painted. */
 void display() {
-
-        // tell OpenGL to use the whole window for drawing
+    // tell OpenGL to use the whole window for drawing
         //glViewport(0, 0, width, height);
 
-        // do an orthographic parallel projection with the coordinate
-        // system set to first quadrant, limited by screen/window size
+    // do an orthographic parallel projection with the coordinate
+    // system set to first quadrant, limited by screen/window size
         //glMatrixMode(GL_PROJECTION);
         //glLoadIdentity();
         //glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
@@ -186,15 +283,17 @@ void display() {
 
         //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-        /*
-         * Draw here
-         */
+    /*
+     * Draw here
+     */
         switch(m) {
             case menu: displayMenu();
                 break;
             case game: displayGame();
                 break;
             case gameOver: displayEnd();
+                break;
+            default:
                 break;
     }
 
@@ -222,7 +321,7 @@ bool is_empty(int next_x, int next_y) {
     return true;
 }
 
-bool move(int x, int y) {
+bool movePiece(int x, int y) {
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
             if (curr_block[i][j]) {
@@ -231,7 +330,7 @@ bool move(int x, int y) {
                 if (!is_empty(next_x, next_y)) {
                     return false;
                 }
-            }
+}
         }
     }
     curr_pos[0] += x;
@@ -283,18 +382,18 @@ void kbd(unsigned char key, int x, int y)
 }
 
 void kbdS(int key, int x, int y) {
-    switch (key) {
+    switch(key) {
         case GLUT_KEY_LEFT:
-            move(-1, 0);
+            movePiece(-1, 0);
             break;
         case GLUT_KEY_RIGHT:
-            move(1, 0);
+            movePiece(1, 0);
             break;
         case GLUT_KEY_UP:
-            move(0,-1);
+            movePiece(0,-1);
             break;
         case GLUT_KEY_DOWN:
-            move(0, 1);
+            movePiece(0, 1);
             break;
     }
 }
@@ -380,44 +479,42 @@ void shift(int y) {
     glutTimerFunc(interval, flush, 0);
 }
 /* Main function: GLUT runs as a console application starting at main()  */
-int main(int argc, char** argv) {
-
-
-
-    glutInit(&argc, argv);          // Initialize GLUT
-
-    glutInitDisplayMode(GLUT_RGBA);
-
-    //glutInitWindowSize((int)width, (int)height);
-    glutInitWindowSize((block_size * row_count)+500, (block_size * column_count)+500);
-    glutInitWindowPosition(0, 0); // Position the window's initial top-left corner
-    /* create the window and store the handle to it */
-    wd = glutCreateWindow("Blokus!!!" /* title */ );
-
-    // Register callback handler for window re-paint event
-    glutDisplayFunc(display);
-    glutReshapeFunc(reshape);
-    // Our own OpenGL initialization
-
-
-    // register keyboard press event processing function
-    // works for numbers, letters, spacebar, etc.
-    glutKeyboardFunc(kbd);
-
-    // register special event: function keys, arrows, etc.
-    glutSpecialFunc(kbdS);
-
-    // handles mouse movement
-    glutPassiveMotionFunc(cursor);
-
-    // handles mouse click
-    glutMouseFunc(mouse);
-
-    // handles timer
-    glutTimerFunc(interval, timer, 0);
-
-    // Enter the event-processing loop
-    init();
-    glutMainLoop();
-    return 0;
-}
+//int main(int argc, char** argv) {
+//
+//    glutInit(&argc, argv);          // Initialize GLUT
+//
+//    glutInitDisplayMode(GLUT_RGBA);
+//
+//    //glutInitWindowSize((int)width, (int)height);
+//    glutInitWindowSize((block_size * row_count)+500, (block_size * column_count)+500);
+//    glutInitWindowPosition(0, 0); // Position the window's initial top-left corner
+//    /* create the window and store the handle to it */
+//    wd = glutCreateWindow("Blokus!!!" /* title */ );
+//
+//    // Register callback handler for window re-paint event
+//    glutDisplayFunc(display);
+//    glutReshapeFunc(reshape);
+//    // Our own OpenGL initialization
+//
+//
+//    // register keyboard press event processing function
+//    // works for numbers, letters, spacebar, etc.
+//    glutKeyboardFunc(kbd);
+//
+//    // register special event: function keys, arrows, etc.
+//    glutSpecialFunc(kbdS);
+//
+//    // handles mouse movement
+//    glutPassiveMotionFunc(cursor);
+//
+//    // handles mouse click
+//    glutMouseFunc(mouse);
+//
+//    // handles timer
+//    glutTimerFunc(interval, timer, 0);
+//
+//    // Enter the event-processing loop
+//    init();
+//    glutMainLoop();
+//    return 0;
+//}

@@ -103,7 +103,7 @@ bool testConstructors() {
     }
     if (passed) cout << "Passed blue rotate90 test - Color:" << pB90.getPieceColor() << " - Rotation: "<< pB90.getRotationOfSquare() << endl;
 
-// ?  should we keep?  - START
+
     // double checking Setters / Getters on this same object - going to unknown and rotate0
     pB90.setPieceColor(unknownColor);
     pB90.setRotationOfSquare(rotate0);
@@ -121,7 +121,7 @@ bool testConstructors() {
         cout << "Piece Getters/Setters: FAILED blue rotate90 test - Color:" << pB90.getPieceColor() << " - Rotation: "<< pB90.getRotationOfSquare() << endl;
     }
     if (passed) cout << "Piece Getters/Setters: Passed blue rotate90 test - Color:" << pB90.getPieceColor() << " - Rotation: "<< pB90.getRotationOfSquare() << endl;
-// ?  should we keep?  - ENDED
+
 
     Piece pY180(yellow, rotate180);
     if (pY180.getPieceColor()!=yellow && pY180.getRotationOfSquare()!=rotate180){

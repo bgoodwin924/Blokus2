@@ -478,43 +478,43 @@ void shift(int y) {
     glutPostRedisplay();
     glutTimerFunc(interval, flush, 0);
 }
-/* Main function: GLUT runs as a console application starting at main()  */
-//int main(int argc, char** argv) {
-//
-//    glutInit(&argc, argv);          // Initialize GLUT
-//
-//    glutInitDisplayMode(GLUT_RGBA);
-//
-//    //glutInitWindowSize((int)width, (int)height);
-//    glutInitWindowSize((block_size * row_count)+500, (block_size * column_count)+500);
-//    glutInitWindowPosition(0, 0); // Position the window's initial top-left corner
-//    /* create the window and store the handle to it */
-//    wd = glutCreateWindow("Blokus!!!" /* title */ );
-//
-//    // Register callback handler for window re-paint event
-//    glutDisplayFunc(display);
-//    glutReshapeFunc(reshape);
-//    // Our own OpenGL initialization
-//
-//
-//    // register keyboard press event processing function
-//    // works for numbers, letters, spacebar, etc.
-//    glutKeyboardFunc(kbd);
-//
-//    // register special event: function keys, arrows, etc.
-//    glutSpecialFunc(kbdS);
-//
-//    // handles mouse movement
-//    glutPassiveMotionFunc(cursor);
-//
-//    // handles mouse click
-//    glutMouseFunc(mouse);
-//
-//    // handles timer
-//    glutTimerFunc(interval, timer, 0);
-//
-//    // Enter the event-processing loop
-//    init();
-//    glutMainLoop();
-//    return 0;
-//}
+///* Main function: GLUT runs as a console application starting at main()  */
+int main(int argc, char** argv) {
+
+    glutInit(&argc, argv);          // Initialize GLUT
+
+    glutInitDisplayMode(GLUT_RGBA);
+
+    //glutInitWindowSize((int)width, (int)height);
+    glutInitWindowSize((block_size * row_count)+500, (block_size * column_count)+500);
+    glutInitWindowPosition(0, 0); // Position the window's initial top-left corner
+    /* create the window and store the handle to it */
+    wd = glutCreateWindow("Blokus!!!" /* title */ );
+
+    // Register callback handler for window re-paint event
+    glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
+    // Our own OpenGL initialization
+
+
+    // register keyboard press event processing function
+    // works for numbers, letters, spacebar, etc.
+    glutKeyboardFunc(kbd);
+
+    // register special event: function keys, arrows, etc.
+    glutSpecialFunc(kbdS);
+
+    // handles mouse movement
+    glutPassiveMotionFunc(cursor);
+
+    // handles mouse click
+    glutMouseFunc(mouse);
+
+// handles timer
+glutTimerFunc(interval, timer, 0);
+
+    // Enter the event-processing loop
+    init();
+    glutMainLoop();
+    return 0;
+}

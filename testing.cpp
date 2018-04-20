@@ -148,15 +148,15 @@ bool testConstructors() {
 
 }
 
-int main() {
-    cout << "*** testing.cpp - main() ***" << endl;
-    // to test constructors, getters, and setters
-    if (testConstructors()) cout << "Passed all tests in testConstructors!" << endl;
-
-    // to test square and piece - enums
-    if (testPieceEnums() ) cout << "Passed all tests in testPieceEnums()! "<< endl;
-
-
-    return 0;
-
-}
+//int main() {
+//    cout << "*** testing.cpp - main() ***" << endl;
+//    // to test constructors, getters, and setters
+//    if (testConstructors()) cout << "Passed all tests in testConstructors!" << endl;
+//
+//    // to test square and piece - enums
+//    if (testPieceEnums() ) cout << "Passed all tests in testPieceEnums()! "<< endl;
+//
+//
+//    return 0;
+//
+//}

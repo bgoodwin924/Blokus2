@@ -118,6 +118,7 @@ void display() {
     /*
      * Draw here
      */
+
     switch(m) {
         case menu: displayMenu();
             break;
@@ -203,7 +204,7 @@ void kbd(unsigned char key, int x, int y)
     }
     //spacebar
     if(key ==32){
-        rotate();
+        s.rotate(b);
     }
 
     glutPostRedisplay();
@@ -214,16 +215,16 @@ void kbd(unsigned char key, int x, int y)
 void kbdS(int key, int x, int y) {
     switch (key) {
         case GLUT_KEY_LEFT:
-            move(-1, 0);
+            s.move(b,-1, 0);
             break;
         case GLUT_KEY_RIGHT:
-            move(1, 0);
+            s.move(b,1, 0);
             break;
         case GLUT_KEY_UP:
-            move(0,-1);
+            s.move(b,0,-1);
             break;
         case GLUT_KEY_DOWN:
-            move(0, 1);
+            s.move(b,0, 1);
             break;
     }
 }
@@ -244,24 +245,6 @@ void mouse(int button, int state, int x, int y) {
 
 
     glutPostRedisplay();
-}
-
-void timer(int value) {
-    /* if (!move(0, 1)) {
-         for (int i = 0; i < 4; i++) {
-             for (int j = 0; j < 4; j++) {
-                 if (curr_block[i][j]) {
-                     blocks[curr_pos[1] + i][curr_pos[0] + j] = 1;
-                 }
-             }
-         }
-         memset(curr_block, 0, 4 * 4 * sizeof(int));
-         curr_pos[0] = 0;
-         curr_pos[1] = 0;
-         flush(0);
-         return;
-     }*/
-    glutTimerFunc(interval, timer, 0);
 }
 
 void throw_new_block() {

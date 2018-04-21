@@ -9,15 +9,15 @@ Shape::Shape(){
     curr_pos[1] = init_pos[1];
 }
 void Shape::init_curr_block(){
-    memcpy(curr_block, tetrominos[rand() % 21], 5 * 5 * sizeof(int));
+    memcpy(curr_block, tetrominos[rand() % 7], 5 * 5 * sizeof(int));
     curr_pos[0] = init_pos[0];
     curr_pos[1] = init_pos[1];
 }
 bool Shape::isempty(Board b, int next_x, int next_y){
-    if (next_x < 0 || row_count <= next_x) {
+    if (next_x < 0 || b.row_count <= next_x) {
         return false;
     }
-    if (next_y < 0 || column_count <= next_y) {
+    if (next_y < 0 || b.column_count <= next_y) {
         return false;
     }
     if (b.blocks[next_y][next_x]) {
@@ -26,8 +26,8 @@ bool Shape::isempty(Board b, int next_x, int next_y){
     return true;
 }
 bool Shape::move(Board b,int x, int y){
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
             if (curr_block[i][j]) {
                 int next_x = curr_pos[0] + j + x;
                 int next_y = curr_pos[1] + i + y;
@@ -43,34 +43,21 @@ bool Shape::move(Board b,int x, int y){
     return true;
 }
 void Shape::rotate(Board b){
-    int tmp[4][4] = {};
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
+    int tmp[5][5] = {};
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
             if (curr_block[i][j]) {
                 int next_x = curr_pos[0] + i;
-                int next_y = curr_pos[1] + 4 - j;
+                int next_y = curr_pos[1] + 5 - j;
                 if (!isempty(b,next_x, next_y)) {
                     return;
                 }
-                tmp[4 - j][i] = 1;
+                tmp[5 - j][i] = 1;
             }
         }
     }
-    memcpy(curr_block, tmp, 4 * 4 * sizeof(int));
+    memcpy(curr_block, tmp, 5 * 5 * sizeof(int));
     glutPostRedisplay();
-}
-void Shape::throw_new_block(Board b){
-    init_curr_block();
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (curr_block[i][j] && b.blocks[curr_pos[1] + i][curr_pos[0] + j]) {
-                //game_over();
-                return;
-            }
-        }
-    }
-    glutPostRedisplay();
-    glutTimerFunc(interval, timer, 0);
 }
 
 void timer(int value) {
@@ -91,6 +78,22 @@ void timer(int value) {
     const int interval = 500;
     glutTimerFunc(interval, timer, 0);
 }
+
+void Shape::throw_new_block(Board b){
+    init_curr_block();
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (curr_block[i][j] && b.blocks[curr_pos[1] + i][curr_pos[0] + j]) {
+                //game_over();
+                return;
+            }
+        }
+    }
+    glutPostRedisplay();
+    glutTimerFunc(interval, timer, 0);
+}
+
+
 
 Board::Board(){
     /*glBegin(GL_LINES);

@@ -1,3 +1,4 @@
+/*
 //
 // Created by Alexandre Verville on 4/7/18.
 //
@@ -164,4 +165,5 @@ void Player::setPieceColor(pieceColors newPieceColor){
     pieceColor=newPieceColor;
 }
 
+*/
 

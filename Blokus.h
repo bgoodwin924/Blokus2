@@ -19,7 +19,13 @@
 #endif
 
 #include <string>
-
+#include <iostream>
+#include "Blokus.h"
+#include <stdlib.h>
+#include <math.h>
+#include <string>
+#include <time.h>
+#include <sstream>
 using namespace std;
 //////////////Board Class////////////
 class Board{

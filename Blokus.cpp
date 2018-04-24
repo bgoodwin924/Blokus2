@@ -3,13 +3,14 @@
 //
 
 #include "Blokus.h"
+
 Shape::Shape(){
     memcpy(curr_block, tetrominos[rand() % 1], 5 * 5 * sizeof(int));
     curr_pos[0] = init_pos[0];
     curr_pos[1] = init_pos[1];
 }
 void Shape::init_curr_block(){
-    memcpy(curr_block, tetrominos[rand() % 7], 5 * 5 * sizeof(int));
+    memcpy(curr_block, tetrominos[rand() %21], 5 * 5 * sizeof(int));
     curr_pos[0] = init_pos[0];
     curr_pos[1] = init_pos[1];
 }
@@ -48,7 +49,7 @@ void Shape::rotate(Board b){
         for (int j = 0; j < 5; j++) {
             if (curr_block[i][j]) {
                 int next_x = curr_pos[0] + i;
-                int next_y = curr_pos[1] + 5 - j;
+                int next_y = curr_pos[1] + 4 - j;
                 if (!isempty(b,next_x, next_y)) {
                     return;
                 }
@@ -96,15 +97,20 @@ void Shape::throw_new_block(Board b){
 
 
 Board::Board(){
-    /*glBegin(GL_LINES);
-    glColor3f(1.0f, 0.0f, 0.0f); // Red (RGB)
-    for (float x = 0; x < 600; x += 30) {
-        glVertex3f(x, 0.0f, 0.0f);
-        glVertex3f(x, float(600), 0.0f);
-    }
-    for (float y = 0; y < 600; y += 30) {
-        glVertex3f(0.0f, y, 0.0f);
-        glVertex3f(float(600), y, 0.0f);
-    }
-    glEnd();*/
+    glBegin(GL_LINES);
+
+// Vertical lines
+    glLineWidth(5.0);
+    glColor3f(0.0, 1.0, 0.0);
+    glBegin(GL_LINES);
+    glVertex3f(0.0, 0.0, 0.0);
+    glVertex3f(15, 0, 0);
+    glEnd();
+
+
+// Horitzontal lines
+
+
+
+
 }

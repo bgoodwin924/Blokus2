@@ -1,9 +1,6 @@
 #include <iostream>
 #include "Blokus.h"
-#include <stdlib.h>
-#include <math.h>
-#include <string>
-#include <sstream>
+
 //using namespace std;
 enum mode {menu,game,gameOver,unknown};
 mode m;
@@ -20,8 +17,9 @@ Board b;
 void init() {
     glClearColor(1, 1, 1, 0);
     glColor3f(0, 0, 0);
-    //srand(time(NULL));
+    srand(time(NULL));
     s.init_curr_block();
+
 }
 
 
@@ -79,8 +77,8 @@ void displayGame()
             }
         }
     }
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
             if (s.curr_block[i][j]) {
                 //glColor3f(0,1,0);
                 glVertex2f(s.curr_pos[0] + j, b.column_count - (s.curr_pos[1] + i));
@@ -139,54 +137,6 @@ void reshape(int width, int height) {
     gluOrtho2D(0, width / s.block_size, 0, height / s.block_size);
 }
 
-bool isempty(int next_x, int next_y) {
-    if (next_x < 0 || b.row_count <= next_x) {
-        return false;
-    }
-    if (next_y < 0 || b.column_count <= next_y) {
-        return false;
-    }
-    if (b.blocks[next_y][next_x]) {
-        return false;
-    }
-    return true;
-}
-
-bool move(int x, int y) {
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (s.curr_block[i][j]) {
-                int next_x = s.curr_pos[0] + j + x;
-                int next_y = s.curr_pos[1] + i + y;
-                if (!isempty(next_x, next_y)) {
-                    return false;
-                }
-            }
-        }
-    }
-    s.curr_pos[0] += x;
-    s.curr_pos[1] += y;
-    glutPostRedisplay();
-    return true;
-}
-
-void rotate() {
-    int tmp[4][4] = {};
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (s.curr_block[i][j]) {
-                int next_x = s.curr_pos[0] + i;
-                int next_y = s.curr_pos[1] + 4 - j;
-                if (!isempty(next_x, next_y)) {
-                    return;
-                }
-                tmp[4 - j][i] = 1;
-            }
-        }
-    }
-    memcpy(s.curr_block, tmp, 4 * 4 * sizeof(int));
-    glutPostRedisplay();
-}
 
 void timer(int value);
 
@@ -202,9 +152,15 @@ void kbd(unsigned char key, int x, int y)
         glutDestroyWindow(wd);
         exit(0);
     }
+    //r key
+    if(key ==114){
+        s.rotate(b);
+    }
     //spacebar
     if(key ==32){
-        s.rotate(b);
+        /*function to place block goes here*/
+        flush(0);
+        s.throw_new_block(b);
     }
 
     glutPostRedisplay();
@@ -301,14 +257,14 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_RGBA);
 
     //glutInitWindowSize((int)width, (int)height);
-    glutInitWindowSize((s.block_size * b.row_count)+500, (s.block_size * b.column_count)+500);
-    glutInitWindowPosition(0, 0); // Position the window's initial top-left corner
+    glutInitWindowSize((s.block_size * b.row_count)+300, (s.block_size * b.column_count));
+    glutInitWindowPosition(500, 300); // Position the window's initial top-left corner
     /* create the window and store the handle to it */
     wd = glutCreateWindow("Blokus!!!" /* title */ );
 
     // Register callback handler for window re-paint event
     glutDisplayFunc(display);
-    glutReshapeFunc(reshape);
+
     // Our own OpenGL initialization
 
 
@@ -329,6 +285,7 @@ int main(int argc, char** argv) {
     glutTimerFunc(interval, timer, 0);
 
     // Enter the event-processing loop
+    glutReshapeFunc(reshape);
     init();
     glutMainLoop();
     return 0;

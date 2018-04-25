@@ -3,7 +3,7 @@
 
 //using namespace std;
 enum mode {menu,game,gameOver,unknown};
-mode m;
+mode m=menu;
 
 GLdouble width, height;
 int wd;
@@ -26,17 +26,18 @@ void init() {
 
 void displayMenu(){
     // draw words
-
+    glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0.847f, 0.749f, 0.847f ,0.0f);
 
     std::string message = "Blokus!";
     glColor3f(1.0, 0.0, 0.0);
-    glRasterPos2i(0, 0);
+    glRasterPos2i(15, 10);
     for (char c : message) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
     }
     std::string message2 = "by: The Blok-Boys";
     glColor3f(1.0, 0.0, 0.0);
-    glRasterPos2i(400, 550);
+    glRasterPos2i(13, 8);
     for (char c : message2) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
     }
@@ -48,23 +49,19 @@ void displayGame()
 
     // do an orthographic parallel projection with the coordinate
     // system set to first quadrant, limited by screen/window size
-    //glMatrixMode(GL_PROJECTION);
-    //glLoadIdentity();
-    //glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
 
     //glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
 
-    /*glBegin(GL_LINES);
-    glColor3f(1.0f, 0.0f, 0.0f); // Red (RGB)
-    for (float x = 0; x < 600; x += 30) {
-        glVertex3f(x, 0.0f, 0.0f);
-        glVertex3f(x, float(600), 0.0f);
-    }
-    for (float y = 0; y < 600; y += 30) {
-        glVertex3f(0.0f, y, 0.0f);
-        glVertex3f(float(600), y, 0.0f);
-    }
-    glEnd();*/
+
+    glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0.847f, 0.749f, 0.847f ,0.0f);
+
+
+
+
     glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_QUADS);
     for (int i = 0; i < b.column_count; i++) {
@@ -80,7 +77,7 @@ void displayGame()
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
             if (s.curr_block[i][j]) {
-                //glColor3f(0,1,0);
+                glColor3f(1,0,0);
                 glVertex2f(s.curr_pos[0] + j, b.column_count - (s.curr_pos[1] + i));
                 glVertex2f(s.curr_pos[0] + j, b.column_count - (s.curr_pos[1] + i + 1));
                 glVertex2f(s.curr_pos[0] + j + 1, b.column_count - (s.curr_pos[1] + i + 1));
@@ -90,6 +87,15 @@ void displayGame()
         }
     }
     glEnd();
+    b.DrawBoard();
+    //Create Player Area
+    std::string message = "Player 1's Pieces!";
+    glColor3f(1.0, 0.0, 0.0);
+    glRasterPos2i(24, 18);
+    for (char c : message) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+    }
+
     glFlush();
 }
 
@@ -186,7 +192,7 @@ void kbdS(int key, int x, int y) {
 }
 
 void cursor(int x, int y) {
-
+    cout<<x<<','<<y<<endl;
 
     glutPostRedisplay();
 }
@@ -194,9 +200,14 @@ void cursor(int x, int y) {
 // button will be GLUT_LEFT_BUTTON or GLUT_RIGHT_BUTTON
 // state will be GLUT_UP or GLUT_DOWN
 void mouse(int button, int state, int x, int y) {
-    if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+    if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && m==menu) {
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         m=game;
+    }
+
+    if(button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game) {
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        m=menu;
     }
 
 

@@ -55,6 +55,7 @@ public:
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
     Board();
+    void DrawBoard();
 };
 //////////////Shapes Class///////////
 class Shape { ;

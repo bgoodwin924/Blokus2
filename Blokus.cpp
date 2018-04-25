@@ -96,19 +96,27 @@ void Shape::throw_new_block(Board b){
 
 
 
-Board::Board(){
-    glBegin(GL_LINES);
+Board::Board() {
 
+}
+
+void Board::DrawBoard() {
+    glLineWidth(2.5);
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_LINES);
 // Vertical lines
-    glLineWidth(5.0);
-    glColor3f(0.0, 1.0, 0.0);
-    glBegin(GL_LINES);
-    glVertex3f(0.0, 0.0, 0.0);
-    glVertex3f(15, 0, 0);
-    glEnd();
-
+    for(int i=0;i<21;i++){
+        glVertex2i(i,0);
+        glVertex2i(i,21);
+    }
 
 // Horitzontal lines
+
+    for (int i = 0; i < 21; i++) {
+        glVertex2i(0, i);
+        glVertex2i(20, i);
+    }
+    glEnd();
 
 
 

@@ -1,7 +1,7 @@
 //
 // Created by Alexandre Verville on 4/7/18.
 //
-
+/*
 #ifndef BLOCKUS_GAME_H
 #define BLOCKUS_GAME_H
 

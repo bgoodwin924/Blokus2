@@ -27,6 +27,9 @@
 #include <time.h>
 #include <sstream>
 using namespace std;
+
+enum PieceColor {red,blue,yellow,green,unknownColor};
+
 //////////////Board Class////////////
 class Board{
 public:
@@ -65,6 +68,7 @@ public:
     const int init_pos[2] = {3, 0};
     int curr_block[5][5] = {};
     int curr_pos[2] = {};
+
 
     const int tetrominos[21][5][5] = {
             {       {0, 0, 0, 0, 0},
@@ -202,7 +206,30 @@ public:
     bool move(Board b,int x, int y);
     void rotate(Board b);
     void throw_new_block(Board b);
-    //void timer(int value);
+    void draw(PieceColor pieceColor1, Board b);
+};
+
+
+class Player { //unrelated class will interact with the game pieces and game board
+private:
+    int playerScore=0;
+    PieceColor pieceColor=unknownColor;
+
+public:
+//Constructors
+    Player();
+    Player(PieceColor pieceColor);
+    Player(PieceColor newPieceColor, int newPlayerScore);
+
+
+//Getters
+    int getPlayerScore() const;
+    PieceColor getPieceColor() const;
+
+
+//Setters
+    void setPlayerScore(int newScore);
+    void setPieceColor(PieceColor newPieceColor);
 };
 
 #endif //BLOK_BOYS_BLOKUS_H

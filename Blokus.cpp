@@ -94,6 +94,43 @@ void Shape::throw_new_block(Board b){
     glutTimerFunc(interval, timer, 0);
 }
 
+void Shape::draw(PieceColor pieceColor, Board b) {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < b.column_count; i++) {
+        for (int j = 0; j < b.row_count; j++) {
+            if (b.blocks[i][j]) {
+                glVertex2f(j, b.column_count - i);
+                glVertex2f(j, b.column_count - i - 1);
+                glVertex2f(j + 1, b.column_count - i - 1);
+                glVertex2f(j + 1, b.column_count - i);
+            }
+        }
+    }
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (curr_block[i][j]) {
+                if(pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(pieceColor==green)
+                    glColor3f(0,1,0);
+                }else{
+                    glColor3f(0.847f, 0.749f, 0.847f);
+                }
+                glVertex2f(curr_pos[0] + j, b.column_count - (curr_pos[1] + i));
+                glVertex2f(curr_pos[0] + j, b.column_count - (curr_pos[1] + i + 1));
+                glVertex2f(curr_pos[0] + j + 1, b.column_count - (curr_pos[1] + i + 1));
+                glVertex2f(curr_pos[0] + j + 1, b.column_count - (curr_pos[1] + i));
+        }
+    }
+
+    glEnd();
+}
+
 
 
 Board::Board() {
@@ -117,8 +154,4 @@ void Board::DrawBoard() {
         glVertex2i(20, i);
     }
     glEnd();
-
-
-
-
 }

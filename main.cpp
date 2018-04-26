@@ -62,31 +62,7 @@ void displayGame()
 
 
 
-    glClear(GL_COLOR_BUFFER_BIT);
-    glBegin(GL_QUADS);
-    for (int i = 0; i < b.column_count; i++) {
-        for (int j = 0; j < b.row_count; j++) {
-            if (b.blocks[i][j]) {
-                glVertex2f(j, b.column_count - i);
-                glVertex2f(j, b.column_count - i - 1);
-                glVertex2f(j + 1, b.column_count - i - 1);
-                glVertex2f(j + 1, b.column_count - i);
-            }
-        }
-    }
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
-            if (s.curr_block[i][j]) {
-                glColor3f(1,0,0);
-                glVertex2f(s.curr_pos[0] + j, b.column_count - (s.curr_pos[1] + i));
-                glVertex2f(s.curr_pos[0] + j, b.column_count - (s.curr_pos[1] + i + 1));
-                glVertex2f(s.curr_pos[0] + j + 1, b.column_count - (s.curr_pos[1] + i + 1));
-                glVertex2f(s.curr_pos[0] + j + 1, b.column_count - (s.curr_pos[1] + i));
-
-            }
-        }
-    }
-    glEnd();
+    s.draw(green,b);
     b.DrawBoard();
     //Create Player Area
     std::string message = "Player 1's Pieces!";
@@ -214,19 +190,7 @@ void mouse(int button, int state, int x, int y) {
     glutPostRedisplay();
 }
 
-void throw_new_block() {
-    s.init_curr_block();
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (s.curr_block[i][j] && b.blocks[s.curr_pos[1] + i][s.curr_pos[0] + j]) {
-                //game_over();
-                return;
-            }
-        }
-    }
-    glutPostRedisplay();
-    glutTimerFunc(interval, timer, 0);
-}
+
 
 void flush(int value) {
     for (int i = b.column_count - 1; i >= 0; i--) {
@@ -246,7 +210,7 @@ void flush(int value) {
             return;
         }
     }
-    throw_new_block();
+    s.throw_new_block(b);
 }
 
 void shift(int y) {

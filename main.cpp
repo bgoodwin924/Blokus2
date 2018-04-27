@@ -11,7 +11,8 @@ int wd;
 
 const int interval = 500;
 int points = 0;
-Shape s;
+Shape s1; //inventory
+Shape s2; //player piece
 Board b;
 Player p1(red);
 
@@ -19,7 +20,7 @@ void init() {
     glClearColor(1, 1, 1, 0);
     glColor3f(0, 0, 0);
     srand(time(NULL));
-    s.init_curr_block();
+    s2.init_curr_block();
 
 }
 
@@ -64,7 +65,7 @@ void displayGame()
     glBegin(GL_QUADS);
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
-            if (s.curr_block[i][j]) {
+            if (s1.curr_block[i][j]) {
                 if(p1.pieceColor==red){
                     glColor3f(1,0,0);
                 }else if(p1.pieceColor==blue){
@@ -76,19 +77,20 @@ void displayGame()
             }else{
                 glColor3f(0.847f, 0.749f, 0.847f);
             }
-            glVertex2f(s.curr_pos[0] + j+20, b.column_count - (s.curr_pos[1] + i));
-            glVertex2f(s.curr_pos[0] + j+20, b.column_count - (s.curr_pos[1] + i + 1));
-            glVertex2f(s.curr_pos[0] + j + 1+20, b.column_count - (s.curr_pos[1] + i + 1));
-            glVertex2f(s.curr_pos[0] + j + 1+20, b.column_count - (s.curr_pos[1] + i));
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-2);
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-2);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-2);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i)-2);
         }
     }
 
     glEnd();
-    glFlush();
 
 
 
-    s.draw(p1.pieceColor,b);
+
+    s2.draw(p1.pieceColor,b);
+
     b.DrawBoard();
     //Create Player Area
     std::string message = "Player 1's Pieces!";
@@ -142,7 +144,7 @@ void display() {
 void reshape(int width, int height) {
     glViewport(0, 0, width, height);
     glLoadIdentity();
-    gluOrtho2D(0, width / s.block_size, 0, height / s.block_size);
+    gluOrtho2D(0, width / s1.block_size, 0, height / s1.block_size);
 }
 
 
@@ -162,13 +164,13 @@ void kbd(unsigned char key, int x, int y)
     }
     //r key
     if(key ==114){
-        s.rotate(b);
+        s2.rotate(b);
     }
     //spacebar
     if(key ==32){
         /*function to place block goes here*/
         flush(0);
-        s.throw_new_block(b);
+        s2.throw_new_block(b);
     }
 
     glutPostRedisplay();
@@ -179,22 +181,22 @@ void kbd(unsigned char key, int x, int y)
 void kbdS(int key, int x, int y) {
     switch (key) {
         case GLUT_KEY_LEFT:
-            s.move(b,-1, 0);
+            s2.move(b,-1, 0);
             break;
         case GLUT_KEY_RIGHT:
-            s.move(b,1, 0);
+            s2.move(b,1, 0);
             break;
         case GLUT_KEY_UP:
-            s.move(b,0,-1);
+            s2.move(b,0,-1);
             break;
         case GLUT_KEY_DOWN:
-            s.move(b,0, 1);
+            s2.move(b,0, 1);
             break;
     }
 }
 
 void cursor(int x, int y) {
-    cout<<x<<','<<y<<endl;
+    //cout<<x<<','<<y<<endl;
 
     glutPostRedisplay();
 }
@@ -236,7 +238,7 @@ void flush(int value) {
             return;
         }
     }
-    s.throw_new_block(b);
+    s2.throw_new_block(b);
 }
 
 void shift(int y) {
@@ -258,7 +260,7 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_RGBA);
 
     //glutInitWindowSize((int)width, (int)height);
-    glutInitWindowSize((s.block_size * b.row_count)+300, (s.block_size * b.column_count));
+    glutInitWindowSize((s2.block_size * b.row_count)+600, (s2.block_size * b.column_count));
     glutInitWindowPosition(500, 300); // Position the window's initial top-left corner
     /* create the window and store the handle to it */
     wd = glutCreateWindow("Blokus!!!" /* title */ );

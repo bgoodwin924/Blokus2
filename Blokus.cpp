@@ -158,7 +158,7 @@ void Board::DrawBoard() {
 
 
 
-/*
+
 Player::Player() {
     pieceColor=unknownColor;
     playerScore=0;
@@ -170,7 +170,7 @@ Player::Player(PieceColor pc) {
         PieceInventory.push_back(i);
     }
 }
-
+/*
 void Player::DrawPlayerInv(Shape s, Board b) {
     glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_QUADS);

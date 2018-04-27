@@ -13,6 +13,7 @@ const int interval = 500;
 int points = 0;
 Shape s;
 Board b;
+Player p1(red);
 
 void init() {
     glClearColor(1, 1, 1, 0);
@@ -59,10 +60,35 @@ void displayGame()
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.847f, 0.749f, 0.847f ,0.0f);
 
+    glClear(GL_COLOR_BUFFER_BIT);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s.curr_pos[0] + j+20, b.column_count - (s.curr_pos[1] + i));
+            glVertex2f(s.curr_pos[0] + j+20, b.column_count - (s.curr_pos[1] + i + 1));
+            glVertex2f(s.curr_pos[0] + j + 1+20, b.column_count - (s.curr_pos[1] + i + 1));
+            glVertex2f(s.curr_pos[0] + j + 1+20, b.column_count - (s.curr_pos[1] + i));
+        }
+    }
+
+    glEnd();
+    glFlush();
 
 
 
-    s.draw(green,b);
+    s.draw(p1.pieceColor,b);
     b.DrawBoard();
     //Create Player Area
     std::string message = "Player 1's Pieces!";

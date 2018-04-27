@@ -46,6 +46,10 @@ squareRotate getRotationOfSquare() const ;
 void setPosX(int newPosX);
 void setPosY(int newPosY);
 void setRotationOfSquare(squareRotate newRotation);
+
+    virtual method
+    virtual bool isInShape() const = 0;
+
 };
 
 

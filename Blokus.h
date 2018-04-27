@@ -203,6 +203,7 @@ public:
     Shape();
     void init_curr_block();
     bool isempty(Board b,int next_x, int next_y);
+    bool isInShape(int x, int y);
     bool move(Board b,int x, int y);
     void rotate(Board b);
     void throw_new_block(Board b);

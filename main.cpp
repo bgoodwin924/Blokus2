@@ -11,6 +11,8 @@ int wd;
 
 const int interval = 500;
 int points = 0;
+int mouseX;
+int mouseY;
 Shape s;
 Board b;
 
@@ -169,6 +171,9 @@ void kbdS(int key, int x, int y) {
 
 void cursor(int x, int y) {
     cout<<x<<','<<y<<endl;
+    //update mouse coordinates
+    mouseX=x;
+    mouseY=y;
 
     glutPostRedisplay();
 }

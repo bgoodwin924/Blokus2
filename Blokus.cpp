@@ -155,3 +155,61 @@ void Board::DrawBoard() {
     }
     glEnd();
 }
+
+
+
+
+Player::Player() {
+    pieceColor=unknownColor;
+    playerScore=0;
+}
+
+Player::Player(PieceColor pc) {
+    pieceColor=pc;
+    for(int i=1;i<22;i++){
+        PieceInventory.push_back(i);
+    }
+}
+/*
+void Player::DrawPlayerInv(Shape s, Board b) {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < b.column_count; i++) {
+        for (int j = 0; j < b.row_count; j++) {
+            if (b.blocks[i][j]) {
+                glVertex2f(j, b.column_count - i);
+                glVertex2f(j, b.column_count - i - 1);
+                glVertex2f(j + 1, b.column_count - i - 1);
+                glVertex2f(j + 1, b.column_count - i);
+            }
+        }
+    }
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s.curr_block[i][j]) {
+                if(pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s.curr_pos[0] + j+20, b.column_count - (s.curr_pos[1] + i));
+            cout<<"1: "<<s.curr_pos[0] + j<<','<< b.column_count - (s.curr_pos[1] + i)<<endl;
+
+            glVertex2f(s.curr_pos[0] + j+20, b.column_count - (s.curr_pos[1] + i + 1));
+            cout<<"2: "<<s.curr_pos[0] + j<<','<< b.column_count - (s.curr_pos[1] + i + 1)<<endl;
+
+            glVertex2f(s.curr_pos[0] + j + 1+20, b.column_count - (s.curr_pos[1] + i + 1));
+            cout<<"3: "<<s.curr_pos[0] + j + 1<<','<< b.column_count - (s.curr_pos[1] + i + 1)<<endl;
+
+            glVertex2f(s.curr_pos[0] + j + 1+20, b.column_count - (s.curr_pos[1] + i));
+            cout<<"4: "<<s.curr_pos[0] + j + 1<<','<< b.column_count - (s.curr_pos[1] + i)<<endl;
+        }
+    }
+    glEnd();
+}*/

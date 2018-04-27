@@ -26,6 +26,7 @@
 #include <string>
 #include <time.h>
 #include <sstream>
+#include <vector>
 using namespace std;
 
 enum PieceColor {red,blue,yellow,green,unknownColor};
@@ -214,9 +215,11 @@ public:
 class Player { //unrelated class will interact with the game pieces and game board
 private:
     int playerScore=0;
-    PieceColor pieceColor=unknownColor;
+
 
 public:
+    PieceColor pieceColor=unknownColor;
+    vector<int>PieceInventory;
 //Constructors
     Player();
     Player(PieceColor pieceColor);

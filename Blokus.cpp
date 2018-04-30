@@ -95,7 +95,7 @@ void Shape::throw_new_block(Board b){
 }
 
 void Shape::draw(PieceColor pieceColor, Board b) {
-    glClear(GL_COLOR_BUFFER_BIT);
+    //glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_QUADS);
     for (int i = 0; i < b.column_count; i++) {
         for (int j = 0; j < b.row_count; j++) {

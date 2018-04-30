@@ -202,7 +202,7 @@ public:
     };
 public:
     Shape();
-    void init_curr_block();
+    void init_curr_block(int i);
     bool isempty(Board b,int next_x, int next_y);
     bool move(Board b,int x, int y);
     void rotate(Board b);

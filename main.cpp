@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "Blokus.h"
 
 //using namespace std;
@@ -11,6 +12,10 @@ int wd;
 
 const int interval = 500;
 int points = 0;
+int mouseX;
+int mouseY;
+bool hidden;
+
 Shape s1; //inventory
 Shape s2; //player piece
 Board b;
@@ -23,8 +28,6 @@ void init() {
     s2.init_curr_block();
 
 }
-
-
 
 void displayMenu(){
     // draw words
@@ -175,7 +178,6 @@ void kbd(unsigned char key, int x, int y)
 
     glutPostRedisplay();
 
-    return;
 }
 
 void kbdS(int key, int x, int y) {
@@ -196,28 +198,26 @@ void kbdS(int key, int x, int y) {
 }
 
 void cursor(int x, int y) {
-    //cout<<x<<','<<y<<endl;
-
+    cout<<x<<','<<y<<endl;
+    mouseX=x;
+    mouseY=y;
     glutPostRedisplay();
 }
 
 // button will be GLUT_LEFT_BUTTON or GLUT_RIGHT_BUTTON
 // state will be GLUT_UP or GLUT_DOWN
 void mouse(int button, int state, int x, int y) {
-    if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && m==menu) {
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && m == menu) {
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-        m=game;
+        m = game;
     }
 
-    if(button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game) {
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m == game) {
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-        m=menu;
+        m = menu;
+        glutPostRedisplay();
     }
-
-
-    glutPostRedisplay();
 }
-
 
 
 void flush(int value) {

@@ -104,6 +104,7 @@ void Shape::draw(PieceColor pieceColor, Board b) {
                 glVertex2f(j, b.column_count - i - 1);
                 glVertex2f(j + 1, b.column_count - i - 1);
                 glVertex2f(j + 1, b.column_count - i);
+                //cout << "draw 1st j = " << j << " - column =" << b.column_count << endl;
             }
         }
     }
@@ -125,13 +126,16 @@ void Shape::draw(PieceColor pieceColor, Board b) {
                 glVertex2f(curr_pos[0] + j, b.column_count - (curr_pos[1] + i + 1));
                 glVertex2f(curr_pos[0] + j + 1, b.column_count - (curr_pos[1] + i + 1));
                 glVertex2f(curr_pos[0] + j + 1, b.column_count - (curr_pos[1] + i));
+//                cout << "draw: 2nd curr_pos[0] + j = " << curr_pos[0] + j
+//                     << " - b.column_count - (curr_pos[1] + i) =" << b.column_count - (curr_pos[1] + i)
+//                     << " * 20 j: " <<   (curr_pos[0] + j ) * 20 << " - " << (curr_pos[0] + j + 1) * 20
+//                     << " * 20 i: " <<   (b.column_count - (curr_pos[1] + i)  ) * 20 << " - " << (b.column_count - (curr_pos[1] + i + 1) ) * 20
+//                        << endl;
         }
     }
 
     glEnd();
 }
-
-
 
 Board::Board() {
 

@@ -64,6 +64,9 @@ public:
 //////////////Shapes Class///////////
 class Shape { ;
 public:
+    int posX;
+    int posY;
+
     const int interval = 500;
     const int block_size = 20;
     const int init_pos[2] = {3, 0};

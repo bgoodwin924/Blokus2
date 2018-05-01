@@ -205,7 +205,7 @@ public:
     };
 public:
     Shape();
-    void init_curr_block();
+    void init_curr_block(int i);
     bool isempty(Board b,int next_x, int next_y);
     bool isInShape(int x, int y);
     bool move(Board b,int x, int y);

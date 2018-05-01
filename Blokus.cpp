@@ -9,8 +9,8 @@ Shape::Shape(){
     curr_pos[0] = init_pos[0];
     curr_pos[1] = init_pos[1];
 }
-void Shape::init_curr_block(){
-    memcpy(curr_block, tetrominos[rand() %21], 5 * 5 * sizeof(int));
+void Shape::init_curr_block(int i){
+    memcpy(curr_block, tetrominos[i], 5 * 5 * sizeof(int));
     curr_pos[0] = init_pos[0];
     curr_pos[1] = init_pos[1];
 }
@@ -81,7 +81,7 @@ void timer(int value) {
 }
 
 void Shape::throw_new_block(Board b){
-    init_curr_block();
+    init_curr_block(rand() % 21);
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
             if (curr_block[i][j] && b.blocks[curr_pos[1] + i][curr_pos[0] + j]) {

@@ -27,10 +27,12 @@ bool Shape::isempty(Board b, int next_x, int next_y){
     return true;
 }
 
-bool Shape::isInShape(int x, int y, Board b, Shape s1) {
+bool Shape::isInShape(int x, int y, Board b, Shape s1, double widthGlobal, double heightGlobal) {
     positionCoord posPiece1;
     posPiece1.xpos = s1.curr_pos[0] + 20;
+    cout << "POP PIECE 1 " << posPiece1.xpos << endl;
     posPiece1.ypos = b.column_count - (s1.curr_pos[1]) - 2;
+    cout << posPiece1.ypos << endl;
     positionCoord pos2Piece1;
     pos2Piece1.xpos = s1.curr_pos[0] + 20;
     pos2Piece1.ypos = b.column_count - (s1.curr_pos[1] + 1) - 2;
@@ -40,6 +42,12 @@ bool Shape::isInShape(int x, int y, Board b, Shape s1) {
     positionCoord pos4Piece1;
     pos4Piece1.xpos = s1.curr_pos[0] + 1 + 20;
     pos4Piece1.ypos = b.column_count - (s1.curr_pos[1]) - 2;
+//    x /= widthGlobal/s1.block_size;
+//    y /= heightGlobal/s1.block_size;
+    if(x > 490 && x < 510 && y > 62 && y < 72){
+        cout << "                    HOVER" << endl;
+    }
+
     if (x > posPiece1.xpos && y > posPiece1.ypos && x > pos2Piece1.xpos && y > pos2Piece1.ypos && x > pos3Piece1.xpos &&
         y > pos3Piece1.ypos && x > pos4Piece1.xpos && y > pos4Piece1.ypos) {
         cout << "Hovering" << endl;
@@ -76,7 +84,8 @@ bool Shape::isInShape(int x, int y, Board b, Shape s1) {
 //        int pos3Piece9=(s1.curr_pos[0] + 1+52, b.column_count - (s1.curr_pos[1] + 1)-13);
 //        int pos4Piece9=(s1.curr_pos[0] + 1+52, b.column_count - (s1.curr_pos[1] )-13);
     }
-    else cout << "Not hovering" << endl;
+
+//    else cout << "Not hovering" << endl;
 }
 
 bool Shape::move(Board b,int x, int y){

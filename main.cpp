@@ -6,8 +6,9 @@
 enum mode {menu,game,gameOver,unknown};
 mode m=menu;
 
-GLdouble width, height;
+GLdouble widthGlobal, heightGlobal;
 int wd;
+
 
 
 const int interval = 500;
@@ -57,10 +58,7 @@ void displayGame()
     // system set to first quadrant, limited by screen/window size
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
-
-    //glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
-
+    glOrtho(0.0, 0.0, 0.0, 0.0, -1.f, 1.f);
 
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.847f, 0.749f, 0.847f ,0.0f);
@@ -153,6 +151,8 @@ void displayGame()
             }else{
                 glColor3f(0.847f, 0.749f, 0.847f);
             }
+            int test = s1.curr_pos[0] + j+20;
+            int test2 = b.column_count - (s1.curr_pos[1] + i)-6;
             glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-6);
             glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-6);
             glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-6);
@@ -1212,6 +1212,8 @@ void display() {
 }
 
 void reshape(int width, int height) {
+    widthGlobal=width;
+    heightGlobal=height;
     glViewport(0, 0, width, height);
     glLoadIdentity();
     gluOrtho2D(0, width / s1.block_size, 0, height / s1.block_size);
@@ -1268,7 +1270,7 @@ void cursor(int x, int y) {
     cout<<x<<','<<y<<endl;
     mouseX=x;
     mouseY=y;
-    s1.isInShape(x,y, b, s1);
+    s1.isInShape(x,y, b, s1, widthGlobal, heightGlobal);
 
 
     glutPostRedisplay();

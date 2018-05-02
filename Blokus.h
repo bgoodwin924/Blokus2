@@ -31,6 +31,13 @@ using namespace std;
 
 enum PieceColor {red,blue,yellow,green,unknownColor};
 
+struct positionCoord{
+    int xpos;
+    int ypos;
+};
+
+
+
 //////////////Board Class////////////
 class Board{
 public:
@@ -62,11 +69,8 @@ public:
     void DrawBoard();
 };
 //////////////Shapes Class///////////
-class Shape { ;
+class Shape {
 public:
-    int posX;
-    int posY;
-
     const int interval = 500;
     const int block_size = 20;
     const int init_pos[2] = {3, 0};
@@ -207,7 +211,7 @@ public:
     Shape();
     void init_curr_block(int i);
     bool isempty(Board b,int next_x, int next_y);
-    bool isInShape(int x, int y);
+    bool isInShape(int x, int y, Board b, Shape s1);
     bool move(Board b,int x, int y);
     void rotate(Board b);
     void throw_new_block(Board b);

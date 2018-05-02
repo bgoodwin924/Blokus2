@@ -1268,6 +1268,9 @@ void cursor(int x, int y) {
     cout<<x<<','<<y<<endl;
     mouseX=x;
     mouseY=y;
+    s1.isInShape(x,y, b, s1);
+
+
     glutPostRedisplay();
 }
 

@@ -26,6 +26,59 @@ bool Shape::isempty(Board b, int next_x, int next_y){
     }
     return true;
 }
+
+bool Shape::isInShape(int x, int y, Board b, Shape s1) {
+    positionCoord posPiece1;
+    posPiece1.xpos = s1.curr_pos[0] + 20;
+    posPiece1.ypos = b.column_count - (s1.curr_pos[1]) - 2;
+    positionCoord pos2Piece1;
+    pos2Piece1.xpos = s1.curr_pos[0] + 20;
+    pos2Piece1.ypos = b.column_count - (s1.curr_pos[1] + 1) - 2;
+    positionCoord pos3Piece1;
+    pos3Piece1.xpos = s1.curr_pos[0] + 1 + 20;
+    pos3Piece1.ypos = b.column_count - (s1.curr_pos[1] + 1) - 2;
+    positionCoord pos4Piece1;
+    pos4Piece1.xpos = s1.curr_pos[0] + 1 + 20;
+    pos4Piece1.ypos = b.column_count - (s1.curr_pos[1]) - 2;
+    if (x > posPiece1.xpos && y > posPiece1.ypos && x > pos2Piece1.xpos && y > pos2Piece1.ypos && x > pos3Piece1.xpos &&
+        y > pos3Piece1.ypos && x > pos4Piece1.xpos && y > pos4Piece1.ypos) {
+        cout << "Hovering" << endl;
+
+//        int posPiece2 = (s1.curr_pos[0] + 20, b.column_count - (s1.curr_pos[1] )-4);
+//        int pos2Piece2 = (s1.curr_pos[0] + 20, b.column_count - (s1.curr_pos[1] + 1)-4);
+//        int pos3Piece2 = (s1.curr_pos[0] + 1+20, b.column_count - (s1.curr_pos[1] + 1)-4);
+//        int pos4Piece2 = (s1.curr_pos[0] + 1+20, b.column_count - (s1.curr_pos[1])-4);
+//        int posPiece3 = (s1.curr_pos[0] +50, b.column_count - (s1.curr_pos[1] )-7);
+//        int pos2Piece3 = (s1.curr_pos[0] +50, b.column_count - (s1.curr_pos[1] + 1)-7);
+//        int pos3Piece3 = (s1.curr_pos[0] + 1+50, b.column_count - (s1.curr_pos[1] )-7);
+//        int posPiece4 = (s1.curr_pos[0] +48, b.column_count - (s1.curr_pos[1] )-12);
+//        int pos2Piece4 = (s1.curr_pos[0] +48, b.column_count - (s1.curr_pos[1] + 1)-12);
+//        int pos3Piece4 = (s1.curr_pos[0] +1+48, b.column_count - (s1.curr_pos[1] + 1)-12);
+//        int pos4Piece4 = (s1.curr_pos[0] + 1+48, b.column_count - (s1.curr_pos[1] )-12);
+//        int posPiece5 = (s1.curr_pos[0] +48, b.column_count - (s1.curr_pos[1] )-16);
+//        int pos2Piece5= (s1.curr_pos[0] +48, b.column_count - (s1.curr_pos[1] + 1)-16);
+//        int pos3Piece5= (s1.curr_pos[0] + 1+48, b.column_count - (s1.curr_pos[1] + 1)-16);
+//        int pos4Piece5= (s1.curr_pos[0] + 1+48, b.column_count - (s1.curr_pos[1])-16);
+//        int posPiece6 = (s1.curr_pos[0] +53, b.column_count - (s1.curr_pos[1] )-1);
+//        int pos2Piece6= (s1.curr_pos[0] +53, b.column_count - (s1.curr_pos[1] + 1)-1);
+//        int pos3Piece6= (s1.curr_pos[0] + 1+53, b.column_count - (s1.curr_pos[1] + 1)-1);
+//        int pos4Piece6= (s1.curr_pos[0] + 1+53, b.column_count - (s1.curr_pos[1] )-1);
+//        int posPiece7 =(s1.curr_pos[0] +53, b.column_count - (s1.curr_pos[1] )-5);
+//        int pos2Piece7=(s1.curr_pos[0] +53, b.column_count - (s1.curr_pos[1] + 1)-5);
+//        int pos3Piece7=(s1.curr_pos[0] + 1+53, b.column_count - (s1.curr_pos[1] + 1)-5);
+//        int pos4Piece7=(s1.curr_pos[0] + 1+53, b.column_count - (s1.curr_pos[1] )-5);
+//        int posPiece8 = (s1.curr_pos[0] +53, b.column_count - (s1.curr_pos[1])-9);
+//        int pos2Piece8=(s1.curr_pos[0] +53, b.column_count - (s1.curr_pos[1] + 1)-9);
+//        int pos3Piece8=(s1.curr_pos[0] +1+53, b.column_count - (s1.curr_pos[1] + 1)-9);
+//        int pos4Piece8= (s1.curr_pos[0] + 1+53, b.column_count - (s1.curr_pos[1] )-9);
+//        int posPiece9 =(s1.curr_pos[0] +52, b.column_count - (s1.curr_pos[1] )-13);
+//        int pos2Piece9=(s1.curr_pos[0] +52, b.column_count - (s1.curr_pos[1] + 1)-13);
+//        int pos3Piece9=(s1.curr_pos[0] + 1+52, b.column_count - (s1.curr_pos[1] + 1)-13);
+//        int pos4Piece9=(s1.curr_pos[0] + 1+52, b.column_count - (s1.curr_pos[1] )-13);
+    }
+    else cout << "Not hovering" << endl;
+}
+
 bool Shape::move(Board b,int x, int y){
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {

@@ -27,30 +27,52 @@ bool Shape::isempty(Board b, int next_x, int next_y){
     return true;
 }
 
-bool Shape::isInShape(int x, int y, Board b, Shape s1, double widthGlobal, double heightGlobal) {
+bool Shape::isInShape(int x, int y, Board b, double widthGlobal, double heightGlobal) {
     positionCoord posPiece1;
-    posPiece1.xpos = s1.curr_pos[0] + 20;
+    posPiece1.xpos = curr_pos[0] + 20;
     cout << "POP PIECE 1 " << posPiece1.xpos << endl;
-    posPiece1.ypos = b.column_count - (s1.curr_pos[1]) - 2;
+    posPiece1.ypos = b.column_count - (curr_pos[1]) - 2;
     cout << posPiece1.ypos << endl;
     positionCoord pos2Piece1;
-    pos2Piece1.xpos = s1.curr_pos[0] + 20;
-    pos2Piece1.ypos = b.column_count - (s1.curr_pos[1] + 1) - 2;
+    pos2Piece1.xpos = curr_pos[0] + 20;
+    pos2Piece1.ypos = b.column_count - (curr_pos[1] + 1) - 2;
     positionCoord pos3Piece1;
-    pos3Piece1.xpos = s1.curr_pos[0] + 1 + 20;
-    pos3Piece1.ypos = b.column_count - (s1.curr_pos[1] + 1) - 2;
+    pos3Piece1.xpos = curr_pos[0] + 1 + 20;
+    pos3Piece1.ypos = b.column_count - (curr_pos[1] + 1) - 2;
     positionCoord pos4Piece1;
-    pos4Piece1.xpos = s1.curr_pos[0] + 1 + 20;
-    pos4Piece1.ypos = b.column_count - (s1.curr_pos[1]) - 2;
+    pos4Piece1.xpos = curr_pos[0] + 1 + 20;
+    pos4Piece1.ypos = b.column_count - (curr_pos[1]) - 2;
 //    x /= widthGlobal/s1.block_size;
 //    y /= heightGlobal/s1.block_size;
-    if(x > 490 && x < 510 && y > 62 && y < 72){
+    if(x > 485 && x < 505 && y > 60 && y < 80){
         cout << "                    HOVER" << endl;
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(0.0, 1.0, 0.0);
+
+        glBegin(GL_LINES);
+// Vertical lines
+
+        glVertex2i(24,16);
+        glVertex2i(24,17);
+        glVertex2i(25,16);
+        glVertex2i(25,17);
+
+
+// Horitzontal lines
+
+        glVertex2i(24,16);
+        glVertex2i(25,16);
+        glVertex2i(24,17);
+        glVertex2i(25,17);
+
+        glEnd();
+        glFlush();
     }
 
-    if (x > posPiece1.xpos && y > posPiece1.ypos && x > pos2Piece1.xpos && y > pos2Piece1.ypos && x > pos3Piece1.xpos &&
-        y > pos3Piece1.ypos && x > pos4Piece1.xpos && y > pos4Piece1.ypos) {
-        cout << "Hovering" << endl;
+    //if (x > posPiece1.xpos && y > posPiece1.ypos && x > pos2Piece1.xpos && y > pos2Piece1.ypos && x > pos3Piece1.xpos &&
+      //  y > pos3Piece1.ypos && x > pos4Piece1.xpos && y > pos4Piece1.ypos) {
+        //cout << "Hovering" << endl;
 
 //        int posPiece2 = (s1.curr_pos[0] + 20, b.column_count - (s1.curr_pos[1] )-4);
 //        int pos2Piece2 = (s1.curr_pos[0] + 20, b.column_count - (s1.curr_pos[1] + 1)-4);
@@ -86,7 +108,7 @@ bool Shape::isInShape(int x, int y, Board b, Shape s1, double widthGlobal, doubl
     }
 
 //    else cout << "Not hovering" << endl;
-}
+//}
 
 bool Shape::move(Board b,int x, int y){
     for (int i = 0; i < 5; i++) {

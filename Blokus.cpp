@@ -301,3 +301,1098 @@ void Player::DrawPlayerInv(Shape s, Board b) {
     }
     glEnd();
 }*/
+
+void Player::drawInventory(Shape s1,Player p1, Player p2, Board b) {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-2);
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-2);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-2);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i)-2);
+        }
+    }
+
+    //glClear(GL_COLOR_BUFFER_BIT);
+    s1.init_curr_block(0);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-2);
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-2);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-2);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i)-2);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(1);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-4);
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i)-4);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(2);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            int test = s1.curr_pos[0] + j+20;
+            int test2 = b.column_count - (s1.curr_pos[1] + i)-6;
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-6);
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-6);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-6);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i)-6);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(3);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-9);
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-9);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-9);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i)-9);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(4);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-11);
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-11);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-11);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i)-11);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(4);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-11);
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-11);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-11);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i)-11);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(5);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-14);
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-14);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-14);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i)-14);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(6);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i)-18);
+            glVertex2f(s1.curr_pos[0] + j+20, b.column_count - (s1.curr_pos[1] + i + 1)-18);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i + 1)-18);
+            glVertex2f(s1.curr_pos[0] + j + 1+20, b.column_count - (s1.curr_pos[1] + i)-18);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(7);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+24, b.column_count - (s1.curr_pos[1] + i)-1);
+            glVertex2f(s1.curr_pos[0] + j+24, b.column_count - (s1.curr_pos[1] + i + 1)-1);
+            glVertex2f(s1.curr_pos[0] + j + 1+24, b.column_count - (s1.curr_pos[1] + i + 1)-1);
+            glVertex2f(s1.curr_pos[0] + j + 1+24, b.column_count - (s1.curr_pos[1] + i)-1);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(8);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+24, b.column_count - (s1.curr_pos[1] + i)-4);
+            glVertex2f(s1.curr_pos[0] + j+24, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+24, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+24, b.column_count - (s1.curr_pos[1] + i)-4);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(9);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+24, b.column_count - (s1.curr_pos[1] + i)-7);
+            glVertex2f(s1.curr_pos[0] + j+24, b.column_count - (s1.curr_pos[1] + i + 1)-7);
+            glVertex2f(s1.curr_pos[0] + j + 1+24, b.column_count - (s1.curr_pos[1] + i + 1)-7);
+            glVertex2f(s1.curr_pos[0] + j + 1+24, b.column_count - (s1.curr_pos[1] + i)-7);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(10);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+24, b.column_count - (s1.curr_pos[1] + i)-10);
+            glVertex2f(s1.curr_pos[0] + j+24, b.column_count - (s1.curr_pos[1] + i + 1)-10);
+            glVertex2f(s1.curr_pos[0] + j + 1+24, b.column_count - (s1.curr_pos[1] + i + 1)-10);
+            glVertex2f(s1.curr_pos[0] + j + 1+24, b.column_count - (s1.curr_pos[1] + i)-10);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(11);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+24, b.column_count - (s1.curr_pos[1] + i)-14);
+            glVertex2f(s1.curr_pos[0] + j+24, b.column_count - (s1.curr_pos[1] + i + 1)-14);
+            glVertex2f(s1.curr_pos[0] + j + 1+24, b.column_count - (s1.curr_pos[1] + i + 1)-14);
+            glVertex2f(s1.curr_pos[0] + j + 1+24, b.column_count - (s1.curr_pos[1] + i)-14);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(12);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+28, b.column_count - (s1.curr_pos[1] + i));
+            glVertex2f(s1.curr_pos[0] + j+28, b.column_count - (s1.curr_pos[1] + i + 1));
+            glVertex2f(s1.curr_pos[0] + j + 1+28, b.column_count - (s1.curr_pos[1] + i + 1));
+            glVertex2f(s1.curr_pos[0] + j + 1+28, b.column_count - (s1.curr_pos[1] + i));
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(13);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+28, b.column_count - (s1.curr_pos[1] + i)-4);
+            glVertex2f(s1.curr_pos[0] + j+28, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+28, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+28, b.column_count - (s1.curr_pos[1] + i)-4);
+        }
+    }
+
+    glEnd();
+
+    s1.init_curr_block(15);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+30, b.column_count - (s1.curr_pos[1] + i)-7);
+            glVertex2f(s1.curr_pos[0] + j+30, b.column_count - (s1.curr_pos[1] + i + 1)-7);
+            glVertex2f(s1.curr_pos[0] + j + 1+30, b.column_count - (s1.curr_pos[1] + i + 1)-7);
+            glVertex2f(s1.curr_pos[0] + j + 1+30, b.column_count - (s1.curr_pos[1] + i)-7);
+        }
+    }
+
+    glEnd();
+
+    s1.init_curr_block(16);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+28, b.column_count - (s1.curr_pos[1] + i)-12);
+            glVertex2f(s1.curr_pos[0] + j+28, b.column_count - (s1.curr_pos[1] + i + 1)-12);
+            glVertex2f(s1.curr_pos[0] + j + 1+28, b.column_count - (s1.curr_pos[1] + i + 1)-12);
+            glVertex2f(s1.curr_pos[0] + j + 1+28, b.column_count - (s1.curr_pos[1] + i)-12);
+        }
+    }
+
+    glEnd();
+
+    s1.init_curr_block(17);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+28, b.column_count - (s1.curr_pos[1] + i)-16);
+            glVertex2f(s1.curr_pos[0] + j+28, b.column_count - (s1.curr_pos[1] + i + 1)-16);
+            glVertex2f(s1.curr_pos[0] + j + 1+28, b.column_count - (s1.curr_pos[1] + i + 1)-16);
+            glVertex2f(s1.curr_pos[0] + j + 1+28, b.column_count - (s1.curr_pos[1] + i)-16);
+        }
+    }
+
+    glEnd();
+
+    s1.init_curr_block(18);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+33, b.column_count - (s1.curr_pos[1] + i)-1);
+            glVertex2f(s1.curr_pos[0] + j+33, b.column_count - (s1.curr_pos[1] + i + 1)-1);
+            glVertex2f(s1.curr_pos[0] + j + 1+33, b.column_count - (s1.curr_pos[1] + i + 1)-1);
+            glVertex2f(s1.curr_pos[0] + j + 1+33, b.column_count - (s1.curr_pos[1] + i)-1);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(19);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+33, b.column_count - (s1.curr_pos[1] + i)-5);
+            glVertex2f(s1.curr_pos[0] + j+33, b.column_count - (s1.curr_pos[1] + i + 1)-5);
+            glVertex2f(s1.curr_pos[0] + j + 1+33, b.column_count - (s1.curr_pos[1] + i + 1)-5);
+            glVertex2f(s1.curr_pos[0] + j + 1+33, b.column_count - (s1.curr_pos[1] + i)-5);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(20);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+33, b.column_count - (s1.curr_pos[1] + i)-9);
+            glVertex2f(s1.curr_pos[0] + j+33, b.column_count - (s1.curr_pos[1] + i + 1)-9);
+            glVertex2f(s1.curr_pos[0] + j + 1+33, b.column_count - (s1.curr_pos[1] + i + 1)-9);
+            glVertex2f(s1.curr_pos[0] + j + 1+33, b.column_count - (s1.curr_pos[1] + i)-9);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(14);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p1.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p1.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p1.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p1.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+32, b.column_count - (s1.curr_pos[1] + i)-13);
+            glVertex2f(s1.curr_pos[0] + j+32, b.column_count - (s1.curr_pos[1] + i + 1)-13);
+            glVertex2f(s1.curr_pos[0] + j + 1+32, b.column_count - (s1.curr_pos[1] + i + 1)-13);
+            glVertex2f(s1.curr_pos[0] + j + 1+32, b.column_count - (s1.curr_pos[1] + i)-13);
+        }
+    }
+
+    glEnd();
+
+    //Player 2 Inventory
+    s1.init_curr_block(0);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i)-2);
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i + 1)-2);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i + 1)-2);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i)-2);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(1);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i)-4);
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i)-4);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(2);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i)-6);
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i + 1)-6);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i + 1)-6);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i)-6);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(3);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i)-9);
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i + 1)-9);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i + 1)-9);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i)-9);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(4);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i)-11);
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i + 1)-11);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i + 1)-11);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i)-11);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(4);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i)-11);
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i + 1)-11);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i + 1)-11);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i)-11);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(5);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i)-14);
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i + 1)-14);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i + 1)-14);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i)-14);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(6);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i)-18);
+            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i + 1)-18);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i + 1)-18);
+            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i)-18);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(7);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+44, b.column_count - (s1.curr_pos[1] + i)-1);
+            glVertex2f(s1.curr_pos[0] + j+44, b.column_count - (s1.curr_pos[1] + i + 1)-1);
+            glVertex2f(s1.curr_pos[0] + j + 1+44, b.column_count - (s1.curr_pos[1] + i + 1)-1);
+            glVertex2f(s1.curr_pos[0] + j + 1+44, b.column_count - (s1.curr_pos[1] + i)-1);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(8);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+44, b.column_count - (s1.curr_pos[1] + i)-4);
+            glVertex2f(s1.curr_pos[0] + j+44, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+44, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+44, b.column_count - (s1.curr_pos[1] + i)-4);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(9);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+44, b.column_count - (s1.curr_pos[1] + i)-7);
+            glVertex2f(s1.curr_pos[0] + j+44, b.column_count - (s1.curr_pos[1] + i + 1)-7);
+            glVertex2f(s1.curr_pos[0] + j + 1+44, b.column_count - (s1.curr_pos[1] + i + 1)-7);
+            glVertex2f(s1.curr_pos[0] + j + 1+44, b.column_count - (s1.curr_pos[1] + i)-7);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(10);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+44, b.column_count - (s1.curr_pos[1] + i)-10);
+            glVertex2f(s1.curr_pos[0] + j+44, b.column_count - (s1.curr_pos[1] + i + 1)-10);
+            glVertex2f(s1.curr_pos[0] + j + 1+44, b.column_count - (s1.curr_pos[1] + i + 1)-10);
+            glVertex2f(s1.curr_pos[0] + j + 1+44, b.column_count - (s1.curr_pos[1] + i)-10);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(11);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+44, b.column_count - (s1.curr_pos[1] + i)-14);
+            glVertex2f(s1.curr_pos[0] + j+44, b.column_count - (s1.curr_pos[1] + i + 1)-14);
+            glVertex2f(s1.curr_pos[0] + j + 1+44, b.column_count - (s1.curr_pos[1] + i + 1)-14);
+            glVertex2f(s1.curr_pos[0] + j + 1+44, b.column_count - (s1.curr_pos[1] + i)-14);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(12);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+48, b.column_count - (s1.curr_pos[1] + i));
+            glVertex2f(s1.curr_pos[0] + j+48, b.column_count - (s1.curr_pos[1] + i + 1));
+            glVertex2f(s1.curr_pos[0] + j + 1+48, b.column_count - (s1.curr_pos[1] + i + 1));
+            glVertex2f(s1.curr_pos[0] + j + 1+48, b.column_count - (s1.curr_pos[1] + i));
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(13);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+48, b.column_count - (s1.curr_pos[1] + i)-4);
+            glVertex2f(s1.curr_pos[0] + j+48, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+48, b.column_count - (s1.curr_pos[1] + i + 1)-4);
+            glVertex2f(s1.curr_pos[0] + j + 1+48, b.column_count - (s1.curr_pos[1] + i)-4);
+        }
+    }
+
+    glEnd();
+
+    s1.init_curr_block(15);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+50, b.column_count - (s1.curr_pos[1] + i)-7);
+            glVertex2f(s1.curr_pos[0] + j+50, b.column_count - (s1.curr_pos[1] + i + 1)-7);
+            glVertex2f(s1.curr_pos[0] + j + 1+50, b.column_count - (s1.curr_pos[1] + i + 1)-7);
+            glVertex2f(s1.curr_pos[0] + j + 1+50, b.column_count - (s1.curr_pos[1] + i)-7);
+        }
+    }
+
+    glEnd();
+
+    s1.init_curr_block(16);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+48, b.column_count - (s1.curr_pos[1] + i)-12);
+            glVertex2f(s1.curr_pos[0] + j+48, b.column_count - (s1.curr_pos[1] + i + 1)-12);
+            glVertex2f(s1.curr_pos[0] + j + 1+48, b.column_count - (s1.curr_pos[1] + i + 1)-12);
+            glVertex2f(s1.curr_pos[0] + j + 1+48, b.column_count - (s1.curr_pos[1] + i)-12);
+        }
+    }
+
+    glEnd();
+
+    s1.init_curr_block(17);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+48, b.column_count - (s1.curr_pos[1] + i)-16);
+            glVertex2f(s1.curr_pos[0] + j+48, b.column_count - (s1.curr_pos[1] + i + 1)-16);
+            glVertex2f(s1.curr_pos[0] + j + 1+48, b.column_count - (s1.curr_pos[1] + i + 1)-16);
+            glVertex2f(s1.curr_pos[0] + j + 1+48, b.column_count - (s1.curr_pos[1] + i)-16);
+        }
+    }
+
+    glEnd();
+
+    s1.init_curr_block(18);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+53, b.column_count - (s1.curr_pos[1] + i)-1);
+            glVertex2f(s1.curr_pos[0] + j+53, b.column_count - (s1.curr_pos[1] + i + 1)-1);
+            glVertex2f(s1.curr_pos[0] + j + 1+53, b.column_count - (s1.curr_pos[1] + i + 1)-1);
+            glVertex2f(s1.curr_pos[0] + j + 1+53, b.column_count - (s1.curr_pos[1] + i)-1);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(19);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+53, b.column_count - (s1.curr_pos[1] + i)-5);
+            glVertex2f(s1.curr_pos[0] + j+53, b.column_count - (s1.curr_pos[1] + i + 1)-5);
+            glVertex2f(s1.curr_pos[0] + j + 1+53, b.column_count - (s1.curr_pos[1] + i + 1)-5);
+            glVertex2f(s1.curr_pos[0] + j + 1+53, b.column_count - (s1.curr_pos[1] + i)-5);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(20);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+53, b.column_count - (s1.curr_pos[1] + i)-9);
+            glVertex2f(s1.curr_pos[0] + j+53, b.column_count - (s1.curr_pos[1] + i + 1)-9);
+            glVertex2f(s1.curr_pos[0] + j + 1+53, b.column_count - (s1.curr_pos[1] + i + 1)-9);
+            glVertex2f(s1.curr_pos[0] + j + 1+53, b.column_count - (s1.curr_pos[1] + i)-9);
+        }
+    }
+
+    glEnd();
+    s1.init_curr_block(14);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (s1.curr_block[i][j]) {
+                if(p2.pieceColor==red){
+                    glColor3f(1,0,0);
+                }else if(p2.pieceColor==blue){
+                    glColor3f(0,0,1);
+                }else if(p2.pieceColor==yellow){
+                    glColor3f(1,1,0);
+                }else if(p2.pieceColor==green)
+                    glColor3f(0,1,0);
+            }else{
+                glColor3f(0.847f, 0.749f, 0.847f);
+            }
+            glVertex2f(s1.curr_pos[0] + j+52, b.column_count - (s1.curr_pos[1] + i)-13);
+            glVertex2f(s1.curr_pos[0] + j+52, b.column_count - (s1.curr_pos[1] + i + 1)-13);
+            glVertex2f(s1.curr_pos[0] + j + 1+52, b.column_count - (s1.curr_pos[1] + i + 1)-13);
+            glVertex2f(s1.curr_pos[0] + j + 1+52, b.column_count - (s1.curr_pos[1] + i)-13);
+        }
+    }
+
+    glEnd();
+}

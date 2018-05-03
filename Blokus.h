@@ -216,6 +216,7 @@ public:
     void rotate(Board b);
     void throw_new_block(Board b);
     void draw(PieceColor pieceColor1, Board b);
+
 };
 
 
@@ -241,6 +242,7 @@ public:
 //Setters
     void setPlayerScore(int newScore);
     void setPieceColor(PieceColor newPieceColor);
+    void drawInventory(Shape s1,Player p1, Player p2, Board b);
 };
 
 #endif //BLOK_BOYS_BLOKUS_H

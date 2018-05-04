@@ -1112,7 +1112,7 @@ void timer(int value);
 
 void flush(int value);
 
-void shift(int value);
+void shift(int y);
 
 // http://www.theasciicode.com.ar/ascii-control-characters/escape-ascii-code-27.html
 void kbd(unsigned char key, int x, int y)

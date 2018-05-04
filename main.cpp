@@ -22,6 +22,8 @@ Shape s2; //player piece
 Board b;
 Player p1(red);
 Player p2(blue);
+Player p3(green);
+Player p4(yellow);
 
 void init() {
     glClearColor(1, 1, 1, 0);
@@ -33,21 +35,35 @@ void init() {
 
 void displayMenu(){
     // draw words
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0.0, 0.0, 0.0, 0.0, -1.f, 1.f);
+
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.847f, 0.749f, 0.847f ,0.0f);
+    p1.drawIntro(s1,p1,p2,p3,p4,b);
+
+
 
     std::string message = "Blokus!";
     glColor3f(1.0, 0.0, 0.0);
-    glRasterPos2i(15, 10);
+    glRasterPos2i(28, 10);
     for (char c : message) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
     }
     std::string message2 = "by: The Blok-Boys";
     glColor3f(1.0, 0.0, 0.0);
-    glRasterPos2i(13, 8);
+    glRasterPos2i(25, 9);
     for (char c : message2) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
     }
+    std::string message3 = "Click to Begin";
+    glColor3f(1.0, 0.0, 0.0);
+    glRasterPos2i(26, 8);
+    for (char c : message3) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+    }
+    glFlush();
 }
 
 void displayGame() {
@@ -984,7 +1000,7 @@ void displayGame() {
         glVertex2i(59,15);
         glVertex2i(60,18);
         glVertex2i(60,17);
-// Horitzontal lines
+// Horizontal lines
         glVertex2i(58,18);
         glVertex2i(60,18);
         glVertex2i(57,17);
@@ -1011,7 +1027,7 @@ void displayGame() {
         glVertex2i(58,9);
         glVertex2i(60,9);
         glVertex2i(60,8);
-// Horitzontal lines
+// Horizontal lines
         glVertex2i(56,9);
         glVertex2i(57,9);
         glVertex2i(57,10);
@@ -1032,7 +1048,7 @@ void displayGame() {
         glVertex2i(59,2);
         glVertex2i(60,7);
         glVertex2i(60,2);
-// Horitzontal lines
+// Horizontal lines
         glVertex2i(59,7);
         glVertex2i(60,7);
         glVertex2i(59,2);
@@ -1150,6 +1166,9 @@ void kbdS(int key, int x, int y) {
             break;
         case GLUT_KEY_DOWN:
             s2.move(b,0, 1);
+            break;
+        case GLUT_KEY_INSERT:
+            s2.drawToBoard(b);
             break;
     }
 }

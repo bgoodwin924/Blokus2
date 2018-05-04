@@ -568,7 +568,7 @@ void displayGame()
         glVertex2i(59,15);
         glVertex2i(60,18);
         glVertex2i(60,17);
-// Horitzontal lines
+// Horizontal lines
         glVertex2i(58,18);
         glVertex2i(60,18);
         glVertex2i(57,17);
@@ -595,7 +595,7 @@ void displayGame()
         glVertex2i(58,9);
         glVertex2i(60,9);
         glVertex2i(60,8);
-// Horitzontal lines
+// Horizontal lines
         glVertex2i(56,9);
         glVertex2i(57,9);
         glVertex2i(57,10);
@@ -616,7 +616,7 @@ void displayGame()
         glVertex2i(59,2);
         glVertex2i(60,7);
         glVertex2i(60,2);
-// Horitzontal lines
+// Horizontal lines
         glVertex2i(59,7);
         glVertex2i(60,7);
         glVertex2i(59,2);
@@ -736,6 +736,9 @@ void kbdS(int key, int x, int y) {
             break;
         case GLUT_KEY_DOWN:
             s2.move(b,0, 1);
+            break;
+        case GLUT_KEY_INSERT:
+            s2.drawToBoard(b);
             break;
     }
 }

@@ -44,31 +44,27 @@ bool Shape::isInShape(int x, int y, Board b, double widthGlobal, double heightGl
     pos4Piece1.ypos = b.column_count - (curr_pos[1]) - 2;
 //    x /= widthGlobal/s1.block_size;
 //    y /= heightGlobal/s1.block_size;
-    if(x > 485 && x < 505 && y > 60 && y < 80){
-        cout << "                    HOVER" << endl;
-        glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
-        glColor3f(0.0, 1.0, 0.0);
-
-        glBegin(GL_LINES);
-// Vertical lines
-
-        glVertex2i(24,16);
-        glVertex2i(24,17);
-        glVertex2i(25,16);
-        glVertex2i(25,17);
-
-
-// Horitzontal lines
-
-        glVertex2i(24,16);
-        glVertex2i(25,16);
-        glVertex2i(24,17);
-        glVertex2i(25,17);
-
-        glEnd();
-        glFlush();
-    }
+//    if(x > 485 && x < 505 && y > 60 && y < 80){
+//        cout << "                    HOVER" << endl;
+//        glLineWidth(3.0);
+//        //glClear(GL_COLOR_BUFFER_BIT);
+//        glColor3f(0.0, 1.0, 0.0);
+//        glBegin(GL_LINES);
+//// Vertical lines
+//        glVertex2i(24,16);
+//        glVertex2i(24,17);
+//        glVertex2i(25,16);
+//        glVertex2i(25,17);
+//
+//
+//// Horitzontal lines
+//        glVertex2i(24,16);
+//        glVertex2i(25,16);
+//        glVertex2i(24,17);
+//        glVertex2i(25,17);
+//        glEnd();
+//        glFlush();
+//    }
 
     //if (x > posPiece1.xpos && y > posPiece1.ypos && x > pos2Piece1.xpos && y > pos2Piece1.ypos && x > pos3Piece1.xpos &&
       //  y > pos3Piece1.ypos && x > pos4Piece1.xpos && y > pos4Piece1.ypos) {

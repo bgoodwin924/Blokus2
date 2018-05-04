@@ -86,6 +86,7 @@ void displayGame() {
         glVertex2i(25, 17);
         glEnd();
         glFlush();
+
     } else if (mouseX > 485 && mouseX < 525 && mouseY > 100 && mouseY < 120) {//red shape 2
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -102,42 +103,47 @@ void displayGame() {
         glVertex2i(26, 15);
         glEnd();
         glFlush();
+
     } else if (mouseX > 485 && mouseX < 525 && mouseY > 140 && mouseY < 180) {//red shape 3
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
+// Vertical lines
         glVertex2i(24, 13);
         glVertex2i(26, 13);
         glVertex2i(26, 11);
         glVertex2i(25, 11);
         glVertex2i(24,13);
         glVertex2i(24,12);
+// Horizontal lines
         glVertex2i(24,12);
         glVertex2i(25,12);
         glVertex2i(25,12);
         glVertex2i(25,11);
         glVertex2i(26,11);
         glVertex2i(26,13);
-
         glEnd();
         glFlush();
+
     } else if (mouseX > 485 && mouseX < 544 && mouseY > 160 && mouseY < 220) {//red shape 4
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
+// Vertical lines
         glVertex2i(24, 9);
         glVertex2i(27, 9);
         glVertex2i(27, 10);
         glVertex2i(24, 10);
         glVertex2i(24, 9);
+// Horizontal lines
         glVertex2i(24, 9);
         glVertex2i(27, 9);
         glVertex2i(27, 10);
         glVertex2i(24, 10);
         glVertex2i(24, 9);
-        glEnd();
         glEnd();
         glFlush();
+
     } else if (mouseX > 485 && mouseX < 525 && mouseY > 240 && mouseY < 280) {//red shape 5
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -147,12 +153,14 @@ void displayGame() {
         glVertex2i(26, 8);
         glVertex2i(26, 6);
         glVertex2i(24, 6);
+// Horizontal lines
         glVertex2i(24, 8);
         glVertex2i(24, 6);
         glVertex2i(26,8);
         glVertex2i(26,6);
         glEnd();
         glFlush();
+
     } else if (mouseX > 485 && mouseX < 544 && mouseY > 300 && mouseY < 340) {//red shape 6
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -175,6 +183,7 @@ void displayGame() {
         glVertex2i(26,4);
         glEnd();
         glFlush();
+
     } else if (mouseX > 485 && mouseX < 564 && mouseY > 340 && mouseY < 380) {//red shape 7
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -193,10 +202,12 @@ void displayGame() {
         glVertex2i(24, 0);
         glEnd();
         glFlush();
+
     } else if (mouseX > 569 && mouseX < 626 && mouseY > 40 && mouseY < 82) {//red shape 8
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
+// Vertical lines
         glVertex2i(28,17);
         glVertex2i(28,16);
         glVertex2i(28,16);
@@ -205,6 +216,7 @@ void displayGame() {
         glVertex2i(29,16);
         glVertex2i(30,18);
         glVertex2i(30,17);
+// Horizontal lines
         glVertex2i(31,18);
         glVertex2i(31,16);
         glVertex2i(30,18);
@@ -215,10 +227,12 @@ void displayGame() {
         glVertex2i(31,16);
         glEnd();
         glFlush();
+
     } else if (mouseX > 566 && mouseX < 625 && mouseY > 108 && mouseY < 133) {//red shape 9
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
+// Vertical lines
         glVertex2i(28,14);
         glVertex2i(28,13);
         glVertex2i(29,15);
@@ -227,6 +241,7 @@ void displayGame() {
         glVertex2i(30,13);
         glVertex2i(31,15);
         glVertex2i(31,14);
+// Horizontal lines
         glVertex2i(29,15);
         glVertex2i(31,15);
         glVertex2i(28,14);
@@ -238,16 +253,19 @@ void displayGame() {
         glEnd();
         glEnd();
         glFlush();
+
     } else if (mouseX > 566 && mouseX < 646 && mouseY > 160 && mouseY < 202) {//red shape 10
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
+// Vertical lines
         glVertex2i(28,12);
         glVertex2i(28,10);
         glVertex2i(29,12);
         glVertex2i(29,11);
         glVertex2i(32,11);
         glVertex2i(32,10);
+// Horizontal lines
         glVertex2i(28,12);
         glVertex2i(29,12);
         glVertex2i(29,11);
@@ -260,6 +278,7 @@ void displayGame() {
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
+// Vertical lines
         glVertex2i(29,9);
         glVertex2i(29,7);
         glVertex2i(30,9);
@@ -268,6 +287,7 @@ void displayGame() {
         glVertex2i(28,6);
         glVertex2i(31,7);
         glVertex2i(31,6);
+// Horizontal lines
         glVertex2i(29,9);
         glVertex2i(30,9);
         glVertex2i(28,7);

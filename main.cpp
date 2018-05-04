@@ -102,38 +102,21 @@ void displayGame()
     }
 
 
-    else if(mouseX > 887 && mouseX <910  && mouseY > 60 && mouseY < 80){
+    else if(mouseX > 887 && mouseX <910  && mouseY > 60 && mouseY < 80) {
         glLineWidth(3.0);
         //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
-        glVertex2i(44,16);
-        glVertex2i(44,17);
-        glVertex2i(45,16);
-        glVertex2i(45,17);
+        glVertex2i(44, 16);
+        glVertex2i(44, 17);
+        glVertex2i(45, 16);
+        glVertex2i(45, 17);
 // Horitzontal lines
-        glVertex2i(44,16);
-        glVertex2i(45,16);
-        glVertex2i(44,17);
-        glVertex2i(45,17);
-        glEnd();
-        glFlush();
-    }else if(mouseX > 887 && mouseX <910  && mouseY > 60 && mouseY < 80){
-        glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
-        glColor3f(1.0, 1.0, 1.0);
-        glBegin(GL_LINES);
-// Vertical lines
-        glVertex2i(44,16);
-        glVertex2i(44,17);
-        glVertex2i(45,16);
-        glVertex2i(45,17);
-// Horitzontal lines
-        glVertex2i(44,16);
-        glVertex2i(45,16);
-        glVertex2i(44,17);
-        glVertex2i(45,17);
+        glVertex2i(44, 16);
+        glVertex2i(45, 16);
+        glVertex2i(44, 17);
+        glVertex2i(45, 17);
         glEnd();
         glFlush();
     }else if(mouseX > 887 && mouseX <930  && mouseY > 100 && mouseY < 120){
@@ -149,8 +132,479 @@ void displayGame()
 // Horitzontal lines
         glVertex2i(44,14);
         glVertex2i(46,14);
-        glVertex2i(44,14);
-        glVertex2i(46,14);
+        glVertex2i(44,15);
+        glVertex2i(46,15);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 890 && mouseX <930  && mouseY > 140 && mouseY < 180){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(44,12);
+        glVertex2i(44,13);
+        glVertex2i(46,11);
+        glVertex2i(46,13);
+        glVertex2i(45,12);
+        glVertex2i(45,11);
+// Horitzontal lines
+        glVertex2i(44,12);
+        glVertex2i(45,12);
+        glVertex2i(44,13);
+        glVertex2i(46,13);
+        glVertex2i(45,11);
+        glVertex2i(46,11);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 887 && mouseX <950  && mouseY > 200 && mouseY < 220){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(44,10);
+        glVertex2i(44,9);
+        glVertex2i(47,10);
+        glVertex2i(47,9);
+// Horitzontal lines
+        glVertex2i(44,10);
+        glVertex2i(47,10);
+        glVertex2i(44,9);
+        glVertex2i(47,9);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 887 && mouseX <920  && mouseY > 240 && mouseY < 280){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(44,8);
+        glVertex2i(44,6);
+        glVertex2i(46,8);
+        glVertex2i(46,6);
+// Horitzontal lines
+        glVertex2i(44,8);
+        glVertex2i(46,8);
+        glVertex2i(44,6);
+        glVertex2i(46,6);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 887 && mouseX <950  && mouseY > 300 && mouseY < 335){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(45,5);
+        glVertex2i(45,4);
+        glVertex2i(46,5);
+        glVertex2i(46,4);
+        glVertex2i(44,4);
+        glVertex2i(44,3);
+        glVertex2i(47,4);
+        glVertex2i(47,3);
+// Horitzontal lines
+        glVertex2i(44,3);
+        glVertex2i(47,3);
+        glVertex2i(44,4);
+        glVertex2i(45,4);
+        glVertex2i(45,5);
+        glVertex2i(46,5);
+        glVertex2i(46,4);
+        glVertex2i(47,4);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 887 && mouseX <970  && mouseY > 380 && mouseY < 400){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(44,1);
+        glVertex2i(44,0);
+        glVertex2i(48,1);
+        glVertex2i(48,0);
+// Horitzontal lines
+        glVertex2i(44,1);
+        glVertex2i(48,1);
+        glVertex2i(44,0);
+        glVertex2i(48,0);
+        glEnd();
+        glFlush();
+    }
+    else if(mouseX > 970 && mouseX <1030  && mouseY > 40 && mouseY < 80){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(48,17);
+        glVertex2i(48,16);
+        glVertex2i(50,18);
+        glVertex2i(50,17);
+        glVertex2i(51,18);
+        glVertex2i(51,16);
+// Horitzontal lines
+        glVertex2i(48,16);
+        glVertex2i(51,16);
+        glVertex2i(48,17);
+        glVertex2i(50,17);
+        glVertex2i(50,18);
+        glVertex2i(51,18);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 970 && mouseX <1030  && mouseY > 100 && mouseY < 140){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(48,14);
+        glVertex2i(48,13);
+        glVertex2i(49,15);
+        glVertex2i(49,14);
+        glVertex2i(50,14);
+        glVertex2i(50,13);
+        glVertex2i(51,15);
+        glVertex2i(51,14);
+// Horitzontal lines
+        glVertex2i(49,15);
+        glVertex2i(51,15);
+        glVertex2i(48,14);
+        glVertex2i(49,14);
+        glVertex2i(50,14);
+        glVertex2i(51,14);
+        glVertex2i(48,13);
+        glVertex2i(50,13);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 970 && mouseX <1050  && mouseY > 160 && mouseY < 200){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(48,12);
+        glVertex2i(48,10);
+        glVertex2i(49,12);
+        glVertex2i(49,11);
+        glVertex2i(52,11);
+        glVertex2i(52,10);
+// Horitzontal lines
+        glVertex2i(48,12);
+        glVertex2i(49,12);
+        glVertex2i(49,11);
+        glVertex2i(52,11);
+        glVertex2i(48,10);
+        glVertex2i(52,10);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 970 && mouseX <1030  && mouseY > 220 && mouseY < 280){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(49,9);
+        glVertex2i(49,7);
+        glVertex2i(50,9);
+        glVertex2i(50,7);
+        glVertex2i(48,7);
+        glVertex2i(48,6);
+        glVertex2i(51,7);
+        glVertex2i(51,6);
+// Horitzontal lines
+        glVertex2i(49,9);
+        glVertex2i(50,9);
+        glVertex2i(48,7);
+        glVertex2i(49,7);
+        glVertex2i(50,7);
+        glVertex2i(51,7);
+        glVertex2i(48,6);
+        glVertex2i(51,6);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 970 && mouseX <1030  && mouseY > 300 && mouseY < 360){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(48,5);
+        glVertex2i(48,2);
+        glVertex2i(49,5);
+        glVertex2i(49,3);
+        glVertex2i(51,3);
+        glVertex2i(51,2);
+// Horitzontal lines
+        glVertex2i(48,5);
+        glVertex2i(49,5);
+        glVertex2i(49,3);
+        glVertex2i(51,3);
+        glVertex2i(48,2);
+        glVertex2i(51,2);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 1050 && mouseX <1130  && mouseY > 40 && mouseY < 80){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(52,17);
+        glVertex2i(52,16);
+        glVertex2i(53,18);
+        glVertex2i(53,17);
+        glVertex2i(54,17);
+        glVertex2i(54,16);
+        glVertex2i(56,18);
+        glVertex2i(56,17);
+// Horitzontal lines
+        glVertex2i(52,17);
+        glVertex2i(53,17);
+        glVertex2i(52,16);
+        glVertex2i(54,16);
+        glVertex2i(53,18);
+        glVertex2i(56,18);
+        glVertex2i(54,17);
+        glVertex2i(56,17);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 1050 && mouseX <1110  && mouseY > 100 && mouseY < 160){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(52,14);
+        glVertex2i(52,12);
+        glVertex2i(53,13);
+        glVertex2i(53,12);
+        glVertex2i(54,15);
+        glVertex2i(54,14);
+        glVertex2i(55,15);
+        glVertex2i(55,13);
+// Horitzontal lines
+        glVertex2i(54,15);
+        glVertex2i(55,15);
+        glVertex2i(52,14);
+        glVertex2i(54,14);
+        glVertex2i(53,13);
+        glVertex2i(55,13);
+        glVertex2i(52,12);
+        glVertex2i(53,12);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 1070 && mouseX <1110  && mouseY > 180 && mouseY < 240){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(53,11);
+        glVertex2i(53,8);
+        glVertex2i(54,11);
+        glVertex2i(54,10);
+        glVertex2i(55,10);
+        glVertex2i(55,8);
+// Horitzontal lines
+        glVertex2i(53,11);
+        glVertex2i(54,11);
+        glVertex2i(54,10);
+        glVertex2i(55,10);
+        glVertex2i(53,8);
+        glVertex2i(55,8);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 1050 && mouseX <1110  && mouseY > 260 && mouseY < 320){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(53,7);
+        glVertex2i(53,6);
+        glVertex2i(52,6);
+        glVertex2i(52,4);
+        glVertex2i(53,5);
+        glVertex2i(53,4);
+        glVertex2i(54,6);
+        glVertex2i(54,5);
+        glVertex2i(55,7);
+        glVertex2i(55,6);
+// Horitzontal lines
+        glVertex2i(52,4);
+        glVertex2i(53,4);
+        glVertex2i(52,6);
+        glVertex2i(53,6);
+        glVertex2i(53,5);
+        glVertex2i(54,5);
+        glVertex2i(54,6);
+        glVertex2i(55,6);
+        glVertex2i(53,7);
+        glVertex2i(55,7);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 1050 && mouseX <1090  && mouseY > 340 && mouseY < 400){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(52,3);
+        glVertex2i(52,0);
+        glVertex2i(53,2);
+        glVertex2i(53,1);
+        glVertex2i(54,3);
+        glVertex2i(54,2);
+        glVertex2i(53,2);
+        glVertex2i(53,1);
+        glVertex2i(54,1);
+        glVertex2i(54,0);
+// Horitzontal lines
+        glVertex2i(52,3);
+        glVertex2i(54,3);
+        glVertex2i(53,2);
+        glVertex2i(54,2);
+        glVertex2i(53,1);
+        glVertex2i(54,1);
+        glVertex2i(52,0);
+        glVertex2i(54,0);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 1150 && mouseX <1210  && mouseY > 40 && mouseY < 100){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(58,18);
+        glVertex2i(58,17);
+        glVertex2i(57,17);
+        glVertex2i(57,16);
+        glVertex2i(58,16);
+        glVertex2i(58,15);
+        glVertex2i(59,17);
+        glVertex2i(59,15);
+        glVertex2i(60,18);
+        glVertex2i(60,17);
+// Horitzontal lines
+        glVertex2i(58,18);
+        glVertex2i(60,18);
+        glVertex2i(57,17);
+        glVertex2i(58,17);
+        glVertex2i(58,15);
+        glVertex2i(59,15);
+        glVertex2i(59,17);
+        glVertex2i(60,17);
+        glVertex2i(57,16);
+        glVertex2i(58,16);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 1150 && mouseX <1210  && mouseY > 120 && mouseY < 180){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(57,13);
+        glVertex2i(57,12);
+        glVertex2i(58,12);
+        glVertex2i(58,11);
+        glVertex2i(58,14);
+        glVertex2i(58,13);
+        glVertex2i(59,14);
+        glVertex2i(59,13);
+        glVertex2i(59,12);
+        glVertex2i(59,11);
+        glVertex2i(60,13);
+        glVertex2i(60,12);
+// Horitzontal lines
+        glVertex2i(58,14);
+        glVertex2i(59,14);
+        glVertex2i(57,13);
+        glVertex2i(58,13);
+        glVertex2i(59,13);
+        glVertex2i(60,13);
+        glVertex2i(57,12);
+        glVertex2i(58,12);
+        glVertex2i(59,12);
+        glVertex2i(60,12);
+        glVertex2i(58,11);
+        glVertex2i(59,11);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 1150 && mouseX <1210  && mouseY > 40 && mouseY < 100){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(58,18);
+        glVertex2i(58,17);
+        glVertex2i(57,17);
+        glVertex2i(57,16);
+        glVertex2i(58,16);
+        glVertex2i(58,15);
+        glVertex2i(59,17);
+        glVertex2i(59,15);
+        glVertex2i(60,18);
+        glVertex2i(60,17);
+// Horitzontal lines
+        glVertex2i(58,18);
+        glVertex2i(60,18);
+        glVertex2i(57,17);
+        glVertex2i(58,17);
+        glVertex2i(58,15);
+        glVertex2i(59,15);
+        glVertex2i(59,17);
+        glVertex2i(60,17);
+        glVertex2i(57,16);
+        glVertex2i(58,16);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 1130 && mouseX <1210  && mouseY > 200 && mouseY < 240){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(56,9);
+        glVertex2i(56,8);
+        glVertex2i(57,10);
+        glVertex2i(57,9);
+        glVertex2i(58,10);
+        glVertex2i(58,9);
+        glVertex2i(60,9);
+        glVertex2i(60,8);
+// Horitzontal lines
+        glVertex2i(56,9);
+        glVertex2i(57,9);
+        glVertex2i(57,10);
+        glVertex2i(58,10);
+        glVertex2i(58,9);
+        glVertex2i(60,9);
+        glVertex2i(56,8);
+        glVertex2i(60,8);
+        glEnd();
+        glFlush();
+    }else if(mouseX > 1200 && mouseX <1210  && mouseY > 260 && mouseY < 360){
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+// Vertical lines
+        glVertex2i(59,7);
+        glVertex2i(59,2);
+        glVertex2i(60,7);
+        glVertex2i(60,2);
+// Horitzontal lines
+        glVertex2i(59,7);
+        glVertex2i(60,7);
+        glVertex2i(59,2);
+        glVertex2i(60,2);
         glEnd();
         glFlush();
     }
@@ -163,7 +617,13 @@ void displayGame()
     //Create Player Area
     std::string message = "Player 1's Pieces!";
     glColor3f(1.0, 0.0, 0.0);
-    glRasterPos2i(24, 18);
+    glRasterPos2i(28, 19);
+    for (char c : message) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+    }
+    message = "Player 2's Pieces!";
+    glColor3f(0.0, 0.0, 1.0);
+    glRasterPos2i(48, 19);
     for (char c : message) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
     }
@@ -331,7 +791,7 @@ int main(int argc, char** argv) {
 
     //glutInitWindowSize((int)width, (int)height);
     glutInitWindowSize((s2.block_size * b.row_count)+850, (s2.block_size * b.column_count));
-    glutInitWindowPosition(500, 300); // Position the window's initial top-left corner
+    glutInitWindowPosition(0, 0); // Position the window's initial top-left corner
     /* create the window and store the handle to it */
     wd = glutCreateWindow("Blokus!!!" /* title */ );
 

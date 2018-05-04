@@ -53,8 +53,14 @@ void displayMenu(){
     }
     std::string message2 = "by: The Blok-Boys";
     glColor3f(1.0, 0.0, 0.0);
-    glRasterPos2i(25, 8);
+    glRasterPos2i(25, 9);
     for (char c : message2) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+    }
+    std::string message3 = "Click to Begin";
+    glColor3f(1.0, 0.0, 0.0);
+    glRasterPos2i(26, 8);
+    for (char c : message3) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
     }
     glFlush();

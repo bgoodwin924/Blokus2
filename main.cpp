@@ -9,8 +9,6 @@ mode m=menu;
 GLdouble widthGlobal, heightGlobal;
 int wd;
 
-
-
 const int interval = 500;
 int points = 0;
 int mouseX;
@@ -1083,20 +1081,6 @@ void displayEnd(){
 /* Handler for window-repaint event. Call back when the window first appears and
  whenever the window needs to be re-painted. */
 void display() {
-
-    // tell OpenGL to use the whole window for drawing
-    //glViewport(0, 0, width, height);
-
-    // do an orthographic parallel projection with the coordinate
-    // system set to first quadrant, limited by screen/window size
-    //glMatrixMode(GL_PROJECTION);
-    //glLoadIdentity();
-    //glOrtho(0.0, width, height, 0.0, -1.f, 1.f);
-
-    //glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
-
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
     /*
      * Draw here
      */
@@ -1167,17 +1151,15 @@ void kbdS(int key, int x, int y) {
         case GLUT_KEY_DOWN:
             s2.move(b,0, 1);
             break;
-        case GLUT_KEY_INSERT:
+        case GLUT_KEY_F1:
             s2.drawToBoard(b);
             break;
     }
 }
 
 void cursor(int x, int y) {
-    cout<<x<<','<<y<<endl;
     mouseX=x;
     mouseY=y;
-    //s1.isInShape(x,y, b, widthGlobal, heightGlobal);
 
 
     glutPostRedisplay();

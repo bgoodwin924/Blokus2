@@ -251,7 +251,6 @@ void displayGame() {
         glVertex2i(28,13);
         glVertex2i(30,13);
         glEnd();
-        glEnd();
         glFlush();
 
     } else if (mouseX > 566 && mouseX < 646 && mouseY > 160 && mouseY < 202) {//red shape 10
@@ -298,6 +297,7 @@ void displayGame() {
         glVertex2i(31,6);
         glEnd();
         glFlush();
+
     } else if (mouseX > 566 && mouseX < 626 && mouseY > 302 && mouseY < 360) {//red shape 12
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -318,6 +318,7 @@ void displayGame() {
         glVertex2i(31,2);
         glEnd();
         glFlush();
+
     } else if (mouseX > 645 && mouseX < 728 && mouseY > 42 && mouseY < 81) {//red shape 13
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -342,6 +343,7 @@ void displayGame() {
         glVertex2i(36,17);
         glEnd();
         glFlush();
+
     } else if (mouseX > 645 && mouseX < 707 && mouseY > 102 && mouseY < 162) {//red shape 14
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -366,6 +368,7 @@ void displayGame() {
         glVertex2i(33,12);
         glEnd();
         glFlush();
+
     } else if (mouseX > 665 && mouseX < 707 && mouseY > 182 && mouseY < 240) {//red shape 15
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -386,6 +389,7 @@ void displayGame() {
         glVertex2i(35,8);
         glEnd();
         glFlush();
+
     } else if (mouseX > 645 && mouseX < 707 && mouseY > 260 && mouseY < 320) {//red shape 16
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -414,8 +418,7 @@ void displayGame() {
         glVertex2i(35,7);
         glEnd();
         glFlush();
-        glEnd();
-        glFlush();
+
     } else if (mouseX > 646 && mouseX < 685 && mouseY > 342 && mouseY < 395) {//red shape 17
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -442,6 +445,7 @@ void displayGame() {
         glVertex2i(34,0);
         glEnd();
         glFlush();
+
     } else if (mouseX > 747 && mouseX < 807 && mouseY > 59 && mouseY < 100) {//red shape 18
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -470,6 +474,7 @@ void displayGame() {
         glVertex2i(38,16);
         glEnd();
         glFlush();
+
     } else if (mouseX > 745 && mouseX < 807 && mouseY > 124 && mouseY < 182) {//red shape 19
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -502,6 +507,7 @@ void displayGame() {
         glVertex2i(39,11);
         glEnd();
         glFlush();
+
     } else if (mouseX > 727 && mouseX < 806 && mouseY > 201 && mouseY < 242) {//red shape 20
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -526,6 +532,7 @@ void displayGame() {
         glVertex2i(40,8);
         glEnd();
         glFlush();
+
     } else if (mouseX > 787 && mouseX < 807 && mouseY > 262 && mouseY < 362) {//red shape 21
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -542,6 +549,7 @@ void displayGame() {
         glVertex2i(40,2);
         glEnd();
         glFlush();
+
     }else if(mouseX > 887 && mouseX <930  && mouseY > 100 && mouseY < 120){//blue shape 1
         glLineWidth(3.0);
         //glClear(GL_COLOR_BUFFER_BIT);
@@ -559,9 +567,9 @@ void displayGame() {
         glVertex2i(46,15);
         glEnd();
         glFlush();
+
     }else if(mouseX > 890 && mouseX <930  && mouseY > 140 && mouseY < 180){//blue shape 2
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -580,9 +588,9 @@ void displayGame() {
         glVertex2i(46,11);
         glEnd();
         glFlush();
+
     }else if(mouseX > 887 && mouseX <950  && mouseY > 200 && mouseY < 220){//blue shape 3
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -597,6 +605,7 @@ void displayGame() {
         glVertex2i(47,9);
         glEnd();
         glFlush();
+
     }else if(mouseX > 887 && mouseX <920  && mouseY > 240 && mouseY < 280){//blue shape 4
         glLineWidth(3.0);
         //glClear(GL_COLOR_BUFFER_BIT);
@@ -614,9 +623,9 @@ void displayGame() {
         glVertex2i(46,6);
         glEnd();
         glFlush();
+
     }else if(mouseX > 887 && mouseX <950  && mouseY > 300 && mouseY < 335){//blue shape 5
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -639,9 +648,9 @@ void displayGame() {
         glVertex2i(47,4);
         glEnd();
         glFlush();
+
     }else if(mouseX > 887 && mouseX <970  && mouseY > 380 && mouseY < 400){//blue shape 6
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -657,9 +666,9 @@ void displayGame() {
         glEnd();
         glFlush();
     }
+
     else if(mouseX > 970 && mouseX <1030  && mouseY > 40 && mouseY < 80){//blue shape 7
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -678,9 +687,9 @@ void displayGame() {
         glVertex2i(51,18);
         glEnd();
         glFlush();
+
     }else if(mouseX > 970 && mouseX <1030  && mouseY > 100 && mouseY < 140){//blue shape 8
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -703,9 +712,9 @@ void displayGame() {
         glVertex2i(50,13);
         glEnd();
         glFlush();
+
     }else if(mouseX > 970 && mouseX <1050  && mouseY > 160 && mouseY < 200){//blue shape 9
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -724,9 +733,9 @@ void displayGame() {
         glVertex2i(52,10);
         glEnd();
         glFlush();
+
     }else if(mouseX > 970 && mouseX <1030  && mouseY > 220 && mouseY < 280){//blue shape 10
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -749,9 +758,9 @@ void displayGame() {
         glVertex2i(51,6);
         glEnd();
         glFlush();
+
     }else if(mouseX > 970 && mouseX <1030  && mouseY > 300 && mouseY < 360){//blue shape 11
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -770,9 +779,9 @@ void displayGame() {
         glVertex2i(51,2);
         glEnd();
         glFlush();
+
     }else if(mouseX > 1050 && mouseX <1130  && mouseY > 40 && mouseY < 80){//blue shape 12
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -795,9 +804,9 @@ void displayGame() {
         glVertex2i(56,17);
         glEnd();
         glFlush();
+
     }else if(mouseX > 1050 && mouseX <1110  && mouseY > 100 && mouseY < 160){//blue shape 13
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -820,9 +829,9 @@ void displayGame() {
         glVertex2i(53,12);
         glEnd();
         glFlush();
+
     }else if(mouseX > 1070 && mouseX <1110  && mouseY > 180 && mouseY < 240){//blue shape 14
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -841,9 +850,9 @@ void displayGame() {
         glVertex2i(55,8);
         glEnd();
         glFlush();
+
     }else if(mouseX > 1050 && mouseX <1110  && mouseY > 260 && mouseY < 320){//blue shape 15
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -870,9 +879,9 @@ void displayGame() {
         glVertex2i(55,7);
         glEnd();
         glFlush();
+
     }else if(mouseX > 1050 && mouseX <1090  && mouseY > 340 && mouseY < 400){//blue shape 16
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -897,9 +906,9 @@ void displayGame() {
         glVertex2i(54,0);
         glEnd();
         glFlush();
+
     }else if(mouseX > 1150 && mouseX <1210  && mouseY > 40 && mouseY < 100){//blue shape 17
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -926,9 +935,9 @@ void displayGame() {
         glVertex2i(58,16);
         glEnd();
         glFlush();
+
     }else if(mouseX > 1150 && mouseX <1210  && mouseY > 120 && mouseY < 180){//blue shape 18
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -959,9 +968,9 @@ void displayGame() {
         glVertex2i(59,11);
         glEnd();
         glFlush();
+
     }else if(mouseX > 1150 && mouseX <1210  && mouseY > 40 && mouseY < 100){//blue shape 19
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -988,9 +997,9 @@ void displayGame() {
         glVertex2i(58,16);
         glEnd();
         glFlush();
+
     }else if(mouseX > 1130 && mouseX <1210  && mouseY > 200 && mouseY < 240){//blue shape 20
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -1013,9 +1022,9 @@ void displayGame() {
         glVertex2i(60,8);
         glEnd();
         glFlush();
+
     }else if(mouseX > 1200 && mouseX <1210  && mouseY > 260 && mouseY < 360){//blue shape 21
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -1031,8 +1040,6 @@ void displayGame() {
         glEnd();
         glFlush();
     }
-
-
 
     s2.draw(p1.pieceColor,b);
 

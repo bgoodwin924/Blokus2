@@ -35,8 +35,6 @@ struct positionCoord{
     int ypos;
 };
 
-
-
 //////////////Board Class////////////
 class Board{
 public:

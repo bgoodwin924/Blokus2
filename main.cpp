@@ -1168,7 +1168,6 @@ void mouse(int button, int state, int x, int y) {
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         m = game;
     }
-
     if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m == game) {
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         m = menu;

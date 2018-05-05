@@ -82,6 +82,7 @@ void displayGame() {
 
     b.DrawBoard();
 
+    //applying coordinates calculated for mouse hover
     if (mouseX > 485 && mouseX < 505 && mouseY > 60 && mouseY < 80) {//red shape 1
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);

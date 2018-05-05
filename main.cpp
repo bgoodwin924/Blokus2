@@ -84,7 +84,6 @@ void displayGame() {
 
     if (mouseX > 485 && mouseX < 505 && mouseY > 60 && mouseY < 80) {//red shape 1
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -565,7 +564,6 @@ void displayGame() {
 
     }else if(mouseX > 887 && mouseX <930  && mouseY > 100 && mouseY < 120){//blue shape 1
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines
@@ -621,7 +619,6 @@ void displayGame() {
 
     }else if(mouseX > 887 && mouseX <920  && mouseY > 240 && mouseY < 280){//blue shape 4
         glLineWidth(3.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
         glColor3f(1.0, 1.0, 1.0);
         glBegin(GL_LINES);
 // Vertical lines

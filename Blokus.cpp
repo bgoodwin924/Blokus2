@@ -64,7 +64,7 @@ bool Shape::isInShape(int x, int y, Board b, double widthGlobal, double heightGl
         glVertex2i(24,17);
         glVertex2i(25,16);
         glVertex2i(25,17);
-        
+
 // Horitzontal lines
 
         glVertex2i(24,16);

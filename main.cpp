@@ -1147,8 +1147,8 @@ void kbdS(int key, int x, int y) {
         case GLUT_KEY_DOWN:
             s2.move(b,0, 1);
             break;
-        case GLUT_KEY_F1:
-            s2.drawToBoard(b);
+        case GLUT_KEY_F1: //If f1 is pressed by user
+            s2.drawToBoard(b); //Call drawToBoard method on s2 with param board
             break;
     }
 }

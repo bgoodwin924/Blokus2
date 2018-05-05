@@ -68,7 +68,7 @@ public:
     void DrawBoard();
 };
 //////////////Shapes Class///////////
-class Shape {
+class   Shape {
 public:
     const int interval = 500;
     const int block_size = 20;

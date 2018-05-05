@@ -10,11 +10,11 @@ Shape::Shape(){
     curr_pos[1] = init_pos[1];
 }
 void Shape::init_curr_block(int i){
-    if (turn % 2 == 0) {
-        i += 21;
+    if (turn % 2 == 0) { //If turn mod 2 = 0, It is player 1s turn
+        i += 21; //Set tetrominos to red (shapes apear as 1s on the board)
     }
-    if (turn % 2 != 0) {
-        i -=21;
+    if (turn % 2 != 0) { //If turn mod 2 != 0, It is player 2s turn
+        i -= 21; //Set tetrominos to red (shapes apear as 2s on the board)
     }
     memcpy(curr_block, tetrominos[i], 5 * 5 * sizeof(int));
     curr_pos[0] = init_pos[0];
@@ -195,18 +195,21 @@ void Shape::draw(PieceColor pieceColor, Board gameBoard) {
     }
     glEnd();
 }
-
+/*drawToBoard takes param b, sets ints x and y to
+ *curr_position, and loops through the matrice
+ *and draws to the board if there is nothing there
+ * already, then adds 1 to int turn */
 void Shape::drawToBoard(Board &b) {
-    int x = curr_pos[1];
-    int y = curr_pos[0];
-    for(int i = x; i < x+5; i++) {
-        for(int j = y; j < y+5; j++) {
-            if (!b.blocks[i][j]) {
-                b.blocks[i][j] = curr_block[i-x][j-y];
+    int x = curr_pos[1]; //Set x to curr_pos at index 1
+    int y = curr_pos[0]; // Set y to curr_pos at index 2
+    for(int i = x; i < x+5; i++) { //Loop through the matrice
+        for(int j = y; j < y+5; j++) { //Create nested loop
+            if (!b.blocks[i][j]) { //If there is no block at curr_pos
+                b.blocks[i][j] = curr_block[i-x][j-y]; //Draw the block at curr_pos
             }
         }
     }
-    turn++;
+    turn++; //Add 1 to turn accumulator
 }
 
 Board::Board(){}
@@ -1225,6 +1228,7 @@ void Player::drawInventory(Shape s1,Player p1, Player p2, Board b) {
             glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i)-11);
         }
     }
+
 
     glEnd();
     s1.init_curr_block(4);

@@ -13,7 +13,6 @@ const int interval = 500;
 int points = 0;
 int mouseX;
 int mouseY;
-bool hidden;
 
 Shape s1; //inventory
 Shape s2; //player piece

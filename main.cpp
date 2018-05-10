@@ -3,7 +3,7 @@
 #include "Blokus.h"
 
 //using namespace std;
-enum mode {menu,game,gameOver,unknown};
+enum mode {menu,game,gameOver};
 mode m=menu;
 
 GLdouble widthGlobal, heightGlobal;
@@ -60,7 +60,7 @@ void displayMenu(){
     for (char c : message3) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
     }
-    glFlush();
+    glFlush();  // Render now
 }
 
 void displayGame() {
@@ -1051,7 +1051,6 @@ void displayGame() {
         glEnd();
         glFlush();
     }
-
     s2.draw(p1.pieceColor,b);
 
     b.DrawBoard();
@@ -1068,7 +1067,6 @@ void displayGame() {
     for (char c : message2) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
     }
-
     glFlush();
 }
 
@@ -1081,7 +1079,6 @@ void display() {
     /*
      * Draw here
      */
-
     switch(m) {
         case menu: displayMenu();
             break;
@@ -1090,10 +1087,7 @@ void display() {
         case gameOver: displayEnd();
             break;
     }
-
-
     glFlush();  // Render now
-
 }
 
 void reshape(int width, int height) {
@@ -1129,7 +1123,6 @@ void kbd(unsigned char key, int x, int y)
         flush(0);
         s2.throw_new_block(b);
     }
-
     glutPostRedisplay();
 
 }
@@ -1170,7 +1163,7 @@ void mouse(int button, int state, int x, int y) {
         m = game;
     }
     if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m == game) {
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+      glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         m = menu;
         glutPostRedisplay();
     }
@@ -1209,7 +1202,6 @@ void shift(int y) {
 }
 /* Main function: GLUT runs as a console application starting at main()  */
 int main(int argc, char** argv) {
-
 
 
     glutInit(&argc, argv);          // Initialize GLUT

@@ -1230,7 +1230,172 @@ void mouse(int button, int state, int x, int y) {
         glutPostRedisplay();
     }
     if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 485 && mouseX < 505 && mouseY > 60 && mouseY < 80){
+        s2.init_curr_block(0); //Shape1
         s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 485 && mouseX < 525 && mouseY > 100 && mouseY < 120){
+        s2.init_curr_block(1); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 485 && mouseX < 525 && mouseY > 140 && mouseY < 180){
+        s2.init_curr_block(2); //Shape2
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 485 && mouseX < 544 && mouseY > 160 && mouseY < 220){
+        s2.init_curr_block(3); //Shape3
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 485 && mouseX < 525 && mouseY > 240 && mouseY < 280){
+        s2.init_curr_block(4); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 485 && mouseX < 544 && mouseY > 300 && mouseY < 340){
+        s2.init_curr_block(5); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 485 && mouseX < 564 && mouseY > 340 && mouseY < 380){
+        s2.init_curr_block(6); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 569 && mouseX < 626 && mouseY > 40 && mouseY < 82){
+        s2.init_curr_block(7); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 566 && mouseX < 625 && mouseY > 108 && mouseY < 133){
+        s2.init_curr_block(8); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 566 && mouseX < 646 && mouseY > 160 && mouseY < 202){
+        s2.init_curr_block(9); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 566 && mouseX < 625 && mouseY > 221 && mouseY < 282){
+        s2.init_curr_block(10); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game&& mouseX > 566 && mouseX < 626 && mouseY > 302 && mouseY < 360){
+        s2.init_curr_block(11); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game&& mouseX > 645 && mouseX < 728 && mouseY > 42 && mouseY < 81){
+        s2.init_curr_block(12); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 645 && mouseX < 707 && mouseY > 102 && mouseY < 162){
+        s2.init_curr_block(13); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 665 && mouseX < 707 && mouseY > 182 && mouseY < 240){
+        s2.init_curr_block(14); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 645 && mouseX < 707 && mouseY > 260 && mouseY < 320){
+        s2.init_curr_block(15); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 646 && mouseX < 685 && mouseY > 342 && mouseY < 395){
+        s2.init_curr_block(16); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 747 && mouseX < 807 && mouseY > 59 && mouseY < 100){
+        s2.init_curr_block(17); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 745 && mouseX < 807 && mouseY > 124 && mouseY < 182){
+        s2.init_curr_block(18); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 727 && mouseX < 806 && mouseY > 201 && mouseY < 242){
+        s2.init_curr_block(19); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 787 && mouseX < 807 && mouseY > 262 && mouseY < 362){
+        s2.init_curr_block(20); //Shape1
+        s2.draw(p1.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 887 && mouseX <930  && mouseY > 100 && mouseY < 120){
+        s2.init_curr_block(0); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 890 && mouseX <930  && mouseY > 140 && mouseY < 180){
+        s2.init_curr_block(1); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 887 && mouseX <950  && mouseY > 200 && mouseY < 220){
+        s2.init_curr_block(2); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 887 && mouseX <920  && mouseY > 240 && mouseY < 280){
+        s2.init_curr_block(3); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 887 && mouseX <950  && mouseY > 300 && mouseY < 335){
+        s2.init_curr_block(4); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 887 && mouseX <970  && mouseY > 380 && mouseY < 400){
+        s2.init_curr_block(5); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 970 && mouseX <1030  && mouseY > 40 && mouseY < 80){
+        s2.init_curr_block(6); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 970 && mouseX <1030  && mouseY > 100 && mouseY < 140){
+        s2.init_curr_block(7); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 970 && mouseX <1050  && mouseY > 160 && mouseY < 200){
+        s2.init_curr_block(8); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 970 && mouseX <1030  && mouseY > 220 && mouseY < 280){
+        s2.init_curr_block(9); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 970 && mouseX <1030  && mouseY > 300 && mouseY < 360){
+        s2.init_curr_block(10); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 1050 && mouseX <1130  && mouseY > 40 && mouseY < 80){
+        s2.init_curr_block(11); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 1050 && mouseX <1110  && mouseY > 100 && mouseY < 160){
+        s2.init_curr_block(12); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 1070 && mouseX <1110  && mouseY > 180 && mouseY < 240){
+        s2.init_curr_block(13); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 1050 && mouseX <1110  && mouseY > 260 && mouseY < 320){
+        s2.init_curr_block(14); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 1050 && mouseX <1090  && mouseY > 340 && mouseY < 400){
+        s2.init_curr_block(15); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 1150 && mouseX <1210  && mouseY > 40 && mouseY < 100){
+        s2.init_curr_block(16); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 1150 && mouseX <1210  && mouseY > 120 && mouseY < 180){
+        s2.init_curr_block(17); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 1150 && mouseX <1210  && mouseY > 40 && mouseY < 100){
+        s2.init_curr_block(18); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 1130 && mouseX <1210  && mouseY > 200 && mouseY < 240){
+        s2.init_curr_block(19); //Shape1
+        s2.draw(p2.pieceColor,b);
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game &&mouseX > 1200 && mouseX <1210  && mouseY > 260 && mouseY < 360){
+        s2.init_curr_block(20); //Shape1
+        s2.draw(p2.pieceColor,b);
     }
 }
 

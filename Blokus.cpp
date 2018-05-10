@@ -3,7 +3,7 @@
 //
 
 #include "Blokus.h"
-int turn = 0;
+int turn = 1;
 Shape::Shape(){
     memcpy(curr_block, tetrominos[rand() % 1], 5 * 5 * sizeof(int));
     curr_pos[0] = init_pos[0];

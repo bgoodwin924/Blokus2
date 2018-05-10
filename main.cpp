@@ -78,7 +78,7 @@ void displayGame() {
 
     p1.drawInventory(s1, p1, p2, b);
 
-    s2.draw(p1.pieceColor, b);
+    //s2.draw(p2.pieceColor, b);
 
     b.DrawBoard();
 

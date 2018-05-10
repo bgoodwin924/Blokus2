@@ -34,6 +34,53 @@ bool Shape::isempty(Board b, int next_x, int next_y){
     return true;
 }
 
+bool Shape::isInShape(int x, int y, Board b, double widthGlobal, double heightGlobal) {
+    positionCoord posPiece1;
+    posPiece1.xpos = curr_pos[0] + 20;
+    cout << "POP PIECE 1 " << posPiece1.xpos << endl;
+    posPiece1.ypos = b.column_count - (curr_pos[1]) - 2;
+    cout << posPiece1.ypos << endl;
+    positionCoord pos2Piece1;
+    pos2Piece1.xpos = curr_pos[0] + 20;
+    pos2Piece1.ypos = b.column_count - (curr_pos[1] + 1) - 2;
+    positionCoord pos3Piece1;
+    pos3Piece1.xpos = curr_pos[0] + 1 + 20;
+    pos3Piece1.ypos = b.column_count - (curr_pos[1] + 1) - 2;
+    positionCoord pos4Piece1;
+    pos4Piece1.xpos = curr_pos[0] + 1 + 20;
+    pos4Piece1.ypos = b.column_count - (curr_pos[1]) - 2;
+//    x /= widthGlobal/s1.block_size;
+//    y /= heightGlobal/s1.block_size;
+    if(x > 485 && x < 505 && y > 60 && y < 80){
+        cout << "                    HOVER" << endl;
+        glLineWidth(3.0);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        glColor3f(0.0, 1.0, 0.0);
+
+        glBegin(GL_LINES);
+// Vertical lines
+
+        glVertex2i(24,16);
+        glVertex2i(24,17);
+        glVertex2i(25,16);
+        glVertex2i(25,17);
+
+
+// Horitzontal lines
+
+        glVertex2i(24,16);
+        glVertex2i(25,16);
+        glVertex2i(24,17);
+        glVertex2i(25,17);
+
+        glEnd();
+        glFlush();
+    }
+    }
+
+//    else cout << "Not hovering" << endl;
+//}
+
 bool Shape::move(Board b,int x, int y){
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
@@ -108,9 +155,9 @@ void Shape::draw(PieceColor pieceColor, Board gameBoard) {
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
             if (curr_block[i][j]) {
-                if(pieceColor==red){
+                if(turn % 2 != 0){
                     glColor3f(1,0,0);
-                }else if(pieceColor==blue){
+                }else if(turn % 2 == 0){
                     glColor3f(0,0,1);
                 }else if(pieceColor==yellow){
                     glColor3f(1,1,0);
@@ -163,6 +210,31 @@ void Shape::drawToBoard(Board &b) {
         }
     }
     turn++; //Add 1 to turn accumulator
+
+}
+
+int Board::getP1Score() {
+    int p1score = 0;
+    for (int x = 0; x < 20; x++) {
+        for (int y = 0; y < 20; y++) {
+            if (blocks[x][y] == 1) {
+                p1score++;
+            }
+        }
+    }
+    return p1score;
+}
+
+int Board::getP2Score() {
+    int p2score = 0;
+    for (int x = 0; x < 20; x++) {
+        for (int y = 0; y < 20; y++) {
+            if (blocks[x][y] == 2) {
+                p2score++;
+            }
+        }
+    }
+    return p2score;
 }
 
 Board::Board(){}
@@ -1079,10 +1151,10 @@ void Player::drawInventory(Shape s1,Player p1, Player p2, Board b) {
             }else{
                 glColor3f(0.847f, 0.749f, 0.847f);
             }
-            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i)-2);
-            glVertex2f(s1.curr_pos[0] + j+40, b.column_count - (s1.curr_pos[1] + i + 1)-2);
-            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i + 1)-2);
-            glVertex2f(s1.curr_pos[0] + j + 1+40, b.column_count - (s1.curr_pos[1] + i)-2);
+            glVertex2f(s1.curr_pos[0] + j+  40, b.column_count - (s1.curr_pos[1] + i)-2);
+            glVertex2f(s1.curr_pos[0] + j+  40, b.column_count - (s1.curr_pos[1] + i + 1)-2);
+            glVertex2f(s1.curr_pos[0] + j+ 1+40, b.column_count - (s1.curr_pos[1] + i + 1)-2);
+            glVertex2f(s1.curr_pos[0] + j+ 1+40, b.column_count - (s1.curr_pos[1] + i)-2);
         }
     }
 

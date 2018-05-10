@@ -35,6 +35,8 @@ struct positionCoord{
     int ypos;
 };
 
+
+
 //////////////Board Class////////////
 class Board{
 public:
@@ -64,6 +66,8 @@ public:
     };
     Board();
     void DrawBoard();
+    int getP1Score();
+    int getP2Score();
 };
 //////////////Shapes Class///////////
 class   Shape {
@@ -338,7 +342,7 @@ public:
     Shape();
     void init_curr_block(int i);
     bool isempty(Board b,int next_x, int next_y);
-    //bool isInShape(int x, int y, Board b, double widthGlobal, double heightGlobal);
+    bool isInShape(int x, int y, Board b, double widthGlobal, double heightGlobal);
     bool move(Board b,int x, int y);
     void rotate(Board b);
     void throw_new_block(Board b);

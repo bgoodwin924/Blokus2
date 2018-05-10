@@ -1179,12 +1179,6 @@ void kbd(unsigned char key, int x, int y)
     if(key ==114){
         s2.rotate(b);
     }
-    //spacebar
-    if(key ==32){
-        /*function to place block goes here*/
-        flush(0);
-        s2.throw_new_block(b);
-    }
 
     glutPostRedisplay();
 

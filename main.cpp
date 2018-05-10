@@ -1187,6 +1187,9 @@ void mouse(int button, int state, int x, int y) {
         m = menu;
         glutPostRedisplay();
     }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m==game && mouseX > 485 && mouseX < 505 && mouseY > 60 && mouseY < 80){
+        s2.draw(p1.pieceColor,b);
+    }
 }
 
 

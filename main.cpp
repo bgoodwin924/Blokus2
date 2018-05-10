@@ -1,9 +1,10 @@
 #include <iostream>
 #include <cmath>
 #include "Blokus.h"
+#include <string>
 
 //using namespace std;
-enum mode {menu,game,gameOver};
+enum mode {menu,game,gameOver,unknown};
 mode m=menu;
 
 GLdouble widthGlobal, heightGlobal;
@@ -60,7 +61,7 @@ void displayMenu(){
     for (char c : message3) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
     }
-    glFlush();  // Render now
+    glFlush();
 }
 
 void displayGame() {
@@ -78,11 +79,10 @@ void displayGame() {
 
     p1.drawInventory(s1, p1, p2, b);
 
-    //s2.draw(p2.pieceColor, b);
+    s2.draw(p1.pieceColor, b);
 
     b.DrawBoard();
 
-    //applying coordinates calculated for mouse hover
     if (mouseX > 485 && mouseX < 505 && mouseY > 60 && mouseY < 80) {//red shape 1
         glLineWidth(3.0);
         glColor3f(1.0, 1.0, 1.0);
@@ -1051,22 +1051,36 @@ void displayGame() {
         glEnd();
         glFlush();
     }
+
     s2.draw(p1.pieceColor,b);
 
     b.DrawBoard();
     //Create Player Area
     std::string message1 = "Player 1's Pieces!";
     glColor3f(1.0, 0.0, 0.0);
-    glRasterPos2i(28, 19);
+    glRasterPos2i(25, 19);
     for (char c : message1) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
     }
+    std::string message3 = "Score: " + to_string(b.getP1Score());
+    glColor3f(1.0, 0.0, 0.0);
+    glRasterPos2i(33, 19);
+    for (char d : message3) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, d);
+    }
     std::string message2 = "Player 2's Pieces!";
     glColor3f(0.0, 0.0, 1.0);
-    glRasterPos2i(48, 19);
+    glRasterPos2i(46, 19);
     for (char c : message2) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
     }
+    std::string message4 = "Score: " + to_string(b.getP2Score());
+    glColor3f(0.0, 0.0, 1.0);
+    glRasterPos2i(54, 19);
+    for (char d : message4) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, d);
+    }
+
     glFlush();
 }
 
@@ -1079,6 +1093,7 @@ void display() {
     /*
      * Draw here
      */
+
     switch(m) {
         case menu: displayMenu();
             break;
@@ -1087,7 +1102,10 @@ void display() {
         case gameOver: displayEnd();
             break;
     }
+
+
     glFlush();  // Render now
+
 }
 
 void reshape(int width, int height) {
@@ -1123,6 +1141,7 @@ void kbd(unsigned char key, int x, int y)
         flush(0);
         s2.throw_new_block(b);
     }
+
     glutPostRedisplay();
 
 }
@@ -1162,8 +1181,9 @@ void mouse(int button, int state, int x, int y) {
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         m = game;
     }
+
     if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && m == game) {
-      glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         m = menu;
         glutPostRedisplay();
     }
@@ -1178,15 +1198,15 @@ void flush(int value) {
                 break;
             }
         }
-        if (j == b.row_count) {
-            std::ostringstream os;
-            os << "Score: " << ++points * 10 << " points";
-            glutSetWindowTitle(os.str().c_str());
-            memset(b.blocks[i], 0, b.row_count * sizeof(int));
-            glutPostRedisplay();
-            glutTimerFunc(interval, shift, i);
-            return;
-        }
+//        if (j == b.row_count) {
+//            std::ostringstream os;
+//            os << "Score: " << ++points * 10 << " points";
+//            glutSetWindowTitle(os.str().c_str());
+//            memset(b.blocks[i], 0, b.row_count * sizeof(int));
+//            glutPostRedisplay();
+//            glutTimerFunc(interval, shift, i);
+//            return;
+//        }
     }
     s2.throw_new_block(b);
 }
@@ -1202,6 +1222,7 @@ void shift(int y) {
 }
 /* Main function: GLUT runs as a console application starting at main()  */
 int main(int argc, char** argv) {
+
 
 
     glutInit(&argc, argv);          // Initialize GLUT

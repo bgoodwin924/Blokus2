@@ -4,7 +4,7 @@
 #include <string>
 
 //using namespace std;
-enum mode {menu,game,gameOver,unknown};
+enum mode {menu,instructions,game,gameOver,unknown};
 mode m=menu;
 
 GLdouble widthGlobal, heightGlobal;
@@ -63,6 +63,48 @@ void displayMenu(){
     }
     glFlush();
 }
+
+void displayInstructions() {
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0.0, 0.0, 0.0, 0.0, -1.f, 1.f);
+
+    glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0.847f, 0.749f, 0.847f, 0.0f);
+
+    std::string messageInstructions = "Instructions ";
+    glColor3f(1.0, 0.0, 0.0);
+    glRasterPos2i(30, 19);
+    for (char c : messageInstructions) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+    }
+    std::string messageTransfer = "Click shape to the right and it will appear on the board ";
+    glColor3f(0.0, 0.0, 1.0);
+    glRasterPos2i(3, 17);
+    for (char c : messageTransfer) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+    }
+    std::string messageArrows = "Arrow keys to move pieces around";
+    glColor3f(1.0, 0.0, 0.0);
+    glRasterPos2i(3, 15);
+    for (char c : messageArrows) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+    }
+    std::string messageR = "Press r to rotate piece";
+    glColor3f(0.0, 0.0, 1.0);
+    glRasterPos2i(3, 13);
+    for (char c : messageR) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+    }
+    std::string messageF1 = "Press F1 to confirm your placement on the board";
+    glColor3f(1.0, 0.0, 0.0);
+    glRasterPos2i(3, 11);
+    for (char c : messageF1) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+    }
+    glFlush();
+}
+
 
 void displayGame() {
     // tell OpenGL to use the whole window for drawing
@@ -1097,6 +1139,8 @@ void display() {
     switch(m) {
         case menu: displayMenu();
             break;
+        case instructions: displayInstructions();
+            break;    
         case game: displayGame();
             break;
         case gameOver: displayEnd();
@@ -1178,6 +1222,10 @@ void cursor(int x, int y) {
 // state will be GLUT_UP or GLUT_DOWN
 void mouse(int button, int state, int x, int y) {
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && m == menu) {
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        m = game;
+    }
+    else if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && m == instructions) {
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         m = game;
     }
